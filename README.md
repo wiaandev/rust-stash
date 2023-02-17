@@ -19,7 +19,7 @@
     <img src="src\components\assets\logo.svg" alt="Logo" width="100px">
   </a>
   
-  <h3 align="center">RustStash</h3>
+  <h3 align="center">Rust Stash</h3>
 
   <p align="center">
     An Angular project built with the MEAN Stack<br>
