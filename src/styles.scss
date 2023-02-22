@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+$heading1: 48px;
+$heading2: 36px;
+$heading3: 24px;
+$heading4: 18px;
+$heading5: 16px;
+$headingp: 14px;
+
+// Colors
+$red: #CE422B;
+$black: #1E2020;
+$white: #F6EAE0;
+$green: #6F8741;
+$alpha: 0.5;
+
+.App{
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+@font-face {
+    font-family: 'Rust';
+    src: url('https://www.dafont.com/rust.font');
+}
+
+* {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    ul, li, a{
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style-type: none;
+        display: inline;
+        display: flex;
+        gap: 50px;
+        font-family: 'Manrope', sans-serif;
+        
+        li:hover{
+            cursor: pointer;
+            color: #F6EAE0;
+            background-color: #CE422B;
+        }
+    }
+}
+
+body{
+    background-color: $white;
+    padding: 50px;
+}
+
+h1 {
+font-size: $heading1;
+font-family: 'Rust';
+}
+
+h2 {
+font-size: $heading2;
+font-family: 'Rust';
+}
+
+h3 {
+font-size: $heading3;
+font-family: 'Rust';
+}
+
+h4 {
+font-size: $heading4;
+padding: 0;
+margin: 0;
+font-family: 'Manrope', sans-serif;
+font-weight: lighter;
+}
+
+h5 {
+font-size: $heading5;
+font-family: 'Manrope', sans-serif;
+}
+
+.p1, p, label {
+font-size: $headingp;
+font-family: 'Manrope', sans-serif;
+}
