@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { StashComponent } from './pages/stash/stash.component';
 import { ButtonComponent } from './components/button/button.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { ButtonComponent } from './components/button/button.component';
     HeaderComponent,
     LandingComponent,
     StashComponent,
-    ButtonComponent
+    ButtonComponent,
+    SignupComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

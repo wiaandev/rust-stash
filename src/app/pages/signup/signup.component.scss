@@ -1,0 +1,12 @@
+@import '../../../styles.scss';
+.left{
+    width: 50%;
+    height: 100vh;
+    background: url('../../../assets/image 49.png');
+}
+
+.right{
+    width: 50%;
+    height: 100vh;
+    background-color: $red;
+}

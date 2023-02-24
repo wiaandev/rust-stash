@@ -51,7 +51,10 @@ $alpha: 0.5;
 
 body{
     background-color: $white;
-    padding: 50px;
+}
+
+.container{
+    padding: 50px; 
 }
 
 h1 {
@@ -86,3 +89,6 @@ font-family: 'Manrope', sans-serif;
 font-size: $headingp;
 font-family: 'Manrope', sans-serif;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
