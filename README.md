@@ -1,12 +1,12 @@
-<!-- REPLACE ALL THE [wiaandev] TEXT WITH YOUR GITHUB PROFILE NAME & THE [RustStash] WITH THE NAME OF YOUR GITHUB PROJECT -->
+<!-- REPLACE ALL THE [wiaandev] TEXT WITH YOUR GITHUB PROFILE NAME & THE [rust-stash] WITH THE NAME OF YOUR GITHUB PROJECT -->
 
 <!-- Repository Information & Links-->
 <br />
 
-![GitHub repo size](https://img.shields.io/github/repo-size/wiaandev/RustStash)
-![GitHub watchers](https://img.shields.io/github/watchers/wiaandev/RustStash)
-![GitHub language count](https://img.shields.io/github/languages/count/wiaandev/RustStash)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wiaandev/RustStash)
+![GitHub repo size](https://img.shields.io/github/repo-size/wiaandev/rust-stash)
+![GitHub watchers](https://img.shields.io/github/watchers/wiaandev/rust-stash)
+![GitHub language count](https://img.shields.io/github/languages/count/wiaandev/rust-stash)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wiaandev/rust-stash)
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Wiaan Duvenhage</h5>
@@ -15,22 +15,22 @@
 </br>
 <p align="center">
 
-  <a href="https://github.com/wiaandev/RustStash">
-    <img src="src\components\assets\logo.svg" alt="Logo" width="100px">
+  <a href="https://github.com/wiaandev/rust-stash">
+    <img src="src/assets/icon.svg" alt="Logo" width="100px">
   </a>
   
   <h3 align="center">Rust Stash</h3>
 
   <p align="center">
-    An Angular project built with the MEAN Stack<br>
+    A inventory management system project built with the MEAN Stack.<br>
     
    <br />
    <br />
    <a href="https://youtu.be/Oag-DdqW9jA">View Demo</a>
     ·
-    <a href="https://github.com/wiaandev/RustStash/issues">Report Bug</a>
+    <a href="https://github.com/wiaandev/rust-stash/issues">Report Bug</a>
     ·
-    <a href="https://github.com/wiaandev/RustStash/issues">Request Feature</a>
+    <a href="https://github.com/wiaandev/rust-stash/issues">Request Feature</a>
 </p>
 <!-- TABLE OF CONTENTS -->
 
@@ -69,7 +69,7 @@
 
 ### Project Description
 
-Welcome to RustStash! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
+Welcome to rust-stash! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
 
 ### Built With
 
@@ -91,13 +91,13 @@ The following instructions will get you a copy of the project up and running on 
 Here are a couple of ways to clone this repo:
 
 1.  GitHub Desktop </br>
-    Enter `https://github.com/wiaandev/RustStash.git` into the URL field and press the `Clone` button.
+    Enter `https://github.com/wiaandev/rust-stash.git` into the URL field and press the `Clone` button.
 
 2.  Clone Repository </br>
     Run the following in the command-line to clone the project:
 
     ```sh
-    git clone https://github.com/wiaandev/RustStash.git
+    git clone https://github.com/wiaandev/rust-stash.git
     ```
 
         Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
@@ -129,9 +129,10 @@ The receptionist can scroll through the calendar to see which date falls on whic
 ### Add Doctor/Patient
 
 ![image7](src/assets/Function3.jpg)
-The receptionist can add a new doctor or patient's information into the modal and it will push to the database and display on the page after it refreshes. 
+The receptionist can add a new doctor or patient's information into the modal and it will push to the database and display on the page after it refreshes.
 
 ### Only Head Receptionist can add
+
 ![image8](src/components/assets/Function4.jpg)
 ![image10](src/components/assets/Function4-1.jpg)
 The head receptionist is the only one authorized to add, delete or update appointments, patients & doctors
@@ -142,7 +143,7 @@ The head receptionist is the only one authorized to add, delete or update appoin
 
 ## Concept Process
 
-It was very evident that blue is something that is very evident when designing dashboards or management portals for medical firms. So it is the route that I decided to go with RustStash, I tried keeping it clean with different hue's of blue and some accents of a lime green.
+It was very evident that blue is something that is very evident when designing dashboards or management portals for medical firms. So it is the route that I decided to go with rust-stash, I tried keeping it clean with different hue's of blue and some accents of a lime green.
 
 ### Wireframes
 
@@ -165,8 +166,6 @@ The `Development Process` is the technical implementations and functionality don
 - `axios` was implemented so that I can make HTTP requests to the database server so that I can retrieve and push data to it
 
 - I used `PHPMyAdmin` to alter data on the database and used PHP to talk to the backend MySQL database
- 
-
 
 #### Highlights
 
@@ -215,7 +214,6 @@ The aspects I learned outside of this class, is that I implemented tailwindcss t
 ![image5](src/components/assets/Mockup5.jpg)
 <br>
 
-
 <!-- VIDEO DEMONSTRATION -->
 
 ### Video Demonstration
@@ -226,7 +224,7 @@ To see a run through of the application, click below:
 
 [View Demonstration](https://youtu.be/Oag-DdqW9jA)
 
-See the [open issues](https://github.com/wiaandev/RustStash/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/wiaandev/rust-stash/issues) for a list of proposed features (and known issues).
 
 <!-- AUTHORS -->
 
@@ -245,7 +243,7 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 ## Contact
 
 - **Wiaan Duvenhage** - [wiaanduvenhage.dev@gmail.com](mailto:wiaanduvenhage.dev@gmail.com) - [@wiaan.dev](https://www.instagram.com/wiaan.dev/)
-- **Project Link** - https://github.com/wiaandev/RustStash
+- **Project Link** - https://github.com/wiaandev/rust-stash
 
 <!-- ACKNOWLEDGEMENTS -->
 
