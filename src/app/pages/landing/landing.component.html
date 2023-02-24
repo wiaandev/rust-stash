@@ -1,6 +1,24 @@
 <div class="container" style="display: flex">
   <div class="left">
-    
+    <img src="../../../assets/icon.svg" alt="" width="50px">
+    <h1>Rust Stash</h1>
+    <h4>Manage. Craft. Track</h4>
+    <app-button
+      (btnClick)="clickHandler()"
+      text="Access Stash"
+      [isDisabled]="false"
+    ></app-button>
+    <p>or</p>
+    <br>
+    <p style="text-decoration: underline; cursor:pointer">Sign up</p>
   </div>
-  <div class="right"></div>
+  <div class="right">
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide" *ngFor="let image of images">
+          <img [src]="image" height="100" width="250" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

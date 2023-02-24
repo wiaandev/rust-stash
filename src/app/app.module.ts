@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { StashComponent } from './pages/stash/stash.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LandingComponent,
-    StashComponent
+    StashComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
