@@ -1,12 +1,46 @@
 @import '../../../styles.scss';
 .left{
-    width: 50%;
+    width: 60%;
     height: 100vh;
-    background: url('../../../assets/image 49.png');
+    background: url('../../../assets/image 49.jpg');
+    object-fit: cover;
+    color: $white;
 }
 
 .right{
-    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    text-align: center;
+    width: 40%;
     height: 100vh;
     background-color: $red;
+
+    form{
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        label{
+            color: $white
+        }
+
+        input{
+            margin-bottom:30px;
+            width: 50%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid $black;
+            outline: none;
+            padding: 5px;
+            color: $white;
+            font-size: $heading4;
+
+            &:focus{
+                border-bottom: 2px solid $white;
+            }
+        }
+    }
 }
