@@ -2,29 +2,37 @@
 .left{
     width: 60%;
     height: 100vh;
-    background: url('../../../assets/image 49.jpg');
-    object-fit: cover;
+    background: url('../../../assets/image\ 49.jpg');
+    background-position: center;
     color: $white;
 }
 
 .right{
     display: flex;
     flex-flow: column;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
     width: 40%;
     height: 100vh;
+    padding: 50px;
     background-color: $red;
 
+    .form-group{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     form{
+        margin-top: 100px;
         width: 100%;
         display: flex;
         flex-flow: column;
         justify-content: center;
-        align-items: center;
+        text-align: left;
 
         label{
-            color: $white
+            color: $white;
         }
 
         input{
