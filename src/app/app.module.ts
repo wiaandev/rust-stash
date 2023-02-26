@@ -10,6 +10,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuickFilterComponent } from './components/quick-filter/quick-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StashComponent,
     ButtonComponent,
     SignupComponent,
-    SliderComponent
+    SliderComponent,
+    QuickFilterComponent
   ],
   imports: [
     BrowserModule,
