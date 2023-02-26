@@ -1,3 +1,4 @@
+@import "../../../styles.scss";
 .header {
   display: flex;
   justify-content: space-between;
@@ -9,7 +10,12 @@
     width: 30%;
     display: flex;
     justify-content: space-between;
-    
+
+    .active {
+      text-decoration: 5px underline $green;
+      color: $green;
+    }
+
     li {
       color: #1e2020;
       position: relative;
@@ -34,14 +40,13 @@
 
     li {
       padding: 10px;
+      &:hover {
+        cursor: pointer;
+        color: #f6eae0;
+      }
     }
 
-    li:hover {
-      cursor: pointer;
-      color: #f6eae0;
-    }
-
-    a{
+    a {
       text-decoration: none;
       color: #1e2020;
     }

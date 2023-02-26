@@ -3,6 +3,8 @@
     display: flex;
 
     .left{
+        display: flex;
+        flex-flow: column;
         width: 20%;
         margin-right: 10px;
         height: 100vh;

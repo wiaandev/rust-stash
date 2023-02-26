@@ -27,6 +27,7 @@ export class ButtonComponent implements OnInit {
   @Input() type: string = 'button';
   @Output() btnClick = new EventEmitter();
   @Input() isDisabled = false;
+  @Input() class: string;
 
   onClick(){
     this.btnClick.emit();

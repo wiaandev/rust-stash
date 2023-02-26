@@ -8,9 +8,9 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { StashComponent } from './pages/stash/stash.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuickFilterComponent } from './components/quick-filter/quick-filter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,15 +20,15 @@ import { QuickFilterComponent } from './components/quick-filter/quick-filter.com
     StashComponent,
     ButtonComponent,
     SignupComponent,
-    SliderComponent,
-    QuickFilterComponent
+    QuickFilterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
