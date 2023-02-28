@@ -26,7 +26,7 @@ export class ButtonComponent implements OnInit {
   @Input() color: string = 'CE422B'
   @Input() type: string = 'button';
   @Output() btnClick = new EventEmitter();
-  @Input() isDisabled = false;
+  @Input() disabled: boolean;
   @Input() class: string;
 
   onClick(){

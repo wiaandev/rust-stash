@@ -6,7 +6,7 @@
     align-items: center;
     width: 60%;
     height: 100vh;
-    background: url('../../../assets/image\ 49.jpg');
+    // background: url('../../../assets/image\ 49.jpg');
     background-position: center;
     color: $white;
 
@@ -16,6 +16,13 @@
         color: $black;
         background-color: $white;
         padding: 10px;
+    }
+
+    .background{
+        opacity: 0.3;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
     }
 }
 
@@ -51,7 +58,7 @@
         }
 
         input{
-            margin-bottom:30px;
+            margin-bottom:0px;
             width: 100%;
             background-color: transparent;
             border: none;
@@ -65,9 +72,22 @@
                 color: darkred;
             }
 
+            // Removes autocomplete styling from Google
             &:focus{
                 border-bottom: 2px solid $white;
             }
+
+            &:-webkit-autofill{
+                -webkit-box-shadow: 0 0 0 30px $red inset;
+                -webkit-text-fill-color: $white;
+            }
+        }
+
+        .error-msg{
+            color: $black;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
         }
     }
 }
