@@ -29,7 +29,7 @@
     );
   }
 
-  $animationSpeed: 40s;
+  $animationSpeed: 5s;
 
   // Animation
   @keyframes scroll {
@@ -37,7 +37,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-250px * 7));
+      transform: translateX(calc(-250px * 21));
     }
   }
 
