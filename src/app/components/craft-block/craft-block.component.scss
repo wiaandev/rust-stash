@@ -1,0 +1,33 @@
+@import "../../../styles.scss";
+.container {
+  display: flex;
+  margin-bottom: 20px;
+  // flex-flow: column;
+  text-align: left;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $red;
+
+  .recipe-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .img-block {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+  }
+
+  .tool-block {
+    color: $white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
