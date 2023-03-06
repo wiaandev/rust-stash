@@ -72,12 +72,10 @@
 Welcome to rust-stash! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
 
 ### Built With
-
-- [React](https://reactjs.org/)
-- [PHP](https://www.php.net/)
-- [MySQL](https://www.mysql.com/)
-- [MAMP for Windows](https://www.mamp.info/en/windows/)
-- [tailwindcss](https://tailwindcss.com/)
+[<img https://www.svgrepo.com/show/452156/angular.svg width="5%" height="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://www.mongodb.com/cloud/atlas/lp/try4?utm_source=google&utm_campaign=gs_emea_south_africa_search_core_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624560&adgroup=115749711783)
+[<img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" width="5%" height="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://expressjs.com/)
+[<img src="https://www.svgrepo.com/show/452156/angular.svg" width="6%" height="6%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://angular.io/)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/590px-Node.js_logo.svg.png?20170401104355" width="7%" height="7%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://nodejs.org/en/)
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
