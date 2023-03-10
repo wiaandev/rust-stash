@@ -1,3 +1,3 @@
-<button [type]="type" (click)="onClick()" [disabled]="disabled" [class]="class">
+<button [type]="type" (click)="onClick()" [class]="class" [ngClass]="disabled ? 'disabled' : 'notDisabled'">
   <h4>{{ buttonText }}</h4>
 </button>

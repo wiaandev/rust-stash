@@ -43,3 +43,11 @@
         cursor: pointer;
     }
 }
+
+.disabled{
+    opacity: 0.5;
+
+    &:hover{
+        cursor: not-allowed;
+    }
+}
