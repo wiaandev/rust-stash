@@ -12,4 +12,6 @@ export class StashComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  display = false;
+
 }

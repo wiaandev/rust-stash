@@ -13,6 +13,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { QuickFilterComponent } from './components/quick-filter/quick-filter.component';
 import { CraftingComponent } from './pages/crafting/crafting.component';
 import { CraftBlockComponent } from './components/craft-block/craft-block.component';
+import { UpdateModalComponent } from './components/update-modal/update-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CraftBlockComponent } from './components/craft-block/craft-block.compon
     QuickFilterComponent,
     CraftingComponent,
     CraftBlockComponent,
+    UpdateModalComponent,
   ],
   imports: [
     BrowserModule,

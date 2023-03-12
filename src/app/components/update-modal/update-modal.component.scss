@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+.container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba($color: $black, $alpha: 0.5);
+    width: 100vw;
+    height: 100vh;
+    .modal{
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: $white;
+        .left{
+            width: 10%;
+        }
+
+        .right{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
