@@ -62,10 +62,10 @@
         />
         <p>Tech Parts</p>
         <div class="right__inventory__card__overlay_btn">
-          <app-button text="Update" class="btn-primary"></app-button>
+          <app-button text="Update" class="btn-primary" (click)="showComponent()"></app-button>
         </div>
       </div>
-      <app-update-modal *ngIf="display"></app-update-modal>
+      <app-update-modal *ngIf="display" (click)="hideComponent()"></app-update-modal>
     </div>
   </div>
 </div>

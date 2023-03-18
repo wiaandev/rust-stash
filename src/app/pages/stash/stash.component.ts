@@ -14,4 +14,12 @@ export class StashComponent implements OnInit {
 
   display = false;
 
+  showComponent(){
+    this.display = true;
+  }
+
+  hideComponent(){
+    this.display = false;
+  }
+
 }
