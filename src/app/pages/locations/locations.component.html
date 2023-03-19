@@ -1,0 +1,59 @@
+<div class="container">
+    <h1 style="text-align: center">Bases</h1>
+    <br>
+    <br>
+    <div class="grid-3">
+        <img src="https://static.wikia.nocookie.net/play-rust/images/e/e5/Armored_House.jpg" alt="base_1" width="200px" (click)="onSelect()">
+        <img src="https://static.wikia.nocookie.net/play-rust/images/6/60/Twig_House.jpg" alt="base_2" width="200px" (click)="onSelect()">
+        <img src="https://static.wikia.nocookie.net/play-rust/images/f/f1/Stone_House.jpg" alt="base_3" width="200px" (click)="onSelect()">
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="grid-4" *ngIf="selected">
+        <div class="item-con">
+            <img src="../../../assets/image 14.png" alt="" width="50%">
+            <h4>Tech Trash</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 13.png" alt="" width="50%">
+            <h4>Sewing Kit</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 12.png" alt="" width="50%">
+            <h4>Charcoal</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 11.png" alt="" width="50%">
+            <h4>Gear</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 10.png" alt="" width="50%">
+            <h4>Stone</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 9.png" alt="" width="50%">
+            <h4>Metal Fragments</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 8.png" alt="" width="50%">
+            <h4>Animal Fat</h4>
+            <p>23</p>
+        </div>
+        <div class="item-con">
+            <img src="../../../assets/image 7.png" alt="" width="50%">
+            <h4>Wood</h4>
+            <p>23</p>
+        </div>
+        <app-button text="close" class="btn-primary" (click)="onClose()"></app-button>
+    </div>
+    <p *ngIf="!selected">Choose A Base</p>
+</div>

@@ -1,0 +1,13 @@
+.container{
+    .grid-3{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        place-items: center;
+    }
+
+    .grid-4{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        place-items: center;
+    }
+}

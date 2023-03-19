@@ -14,6 +14,8 @@ import { QuickFilterComponent } from './components/quick-filter/quick-filter.com
 import { CraftingComponent } from './pages/crafting/crafting.component';
 import { CraftBlockComponent } from './components/craft-block/craft-block.component';
 import { UpdateModalComponent } from './components/update-modal/update-modal.component';
+import {LocationsComponent } from './pages/locations/locations.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { UpdateModalComponent } from './components/update-modal/update-modal.com
     CraftingComponent,
     CraftBlockComponent,
     UpdateModalComponent,
+    LocationsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
