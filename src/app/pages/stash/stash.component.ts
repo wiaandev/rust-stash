@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StashService } from 'src/app/services/stash.service';
+import { MaterialModel } from 'src/shared/Materials.model';
 
 @Component({
   selector: 'app-stash',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StashComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stashService: StashService) { }
+
+  stash: MaterialModel[] = []
 
   ngOnInit(): void {
+    this.stashService.getAllStash().subscribe((data) => {
+      console.log(data);
+      this.stash = data;
+    })
   }
 
   display = false;

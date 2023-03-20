@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "npx ts-node index.ts",
+    "dev": "npx nodemon index.ts",
     "build": "npx tsc --project ./"
   },
   "keywords": [],

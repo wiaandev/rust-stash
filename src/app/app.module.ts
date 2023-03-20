@@ -16,6 +16,7 @@ import { CraftBlockComponent } from './components/craft-block/craft-block.compon
 import { UpdateModalComponent } from './components/update-modal/update-modal.component';
 import {LocationsComponent } from './pages/locations/locations.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
   ],
   providers: [],

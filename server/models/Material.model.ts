@@ -1,20 +1,20 @@
-import {prop, getModelForClass} from '@typegoose/typegoose';
+import { prop, getModelForClass } from '@typegoose/typegoose';
 
-export class Material{
-    @prop({required: true})
-    public name: string;
+class Material {
+  @prop()
+  public name!: string;
 
-    @prop({required: true})
-    public desc: string;
+  @prop()
+  public desc!: string;
 
-    @prop({type: () => [String]})
-    public categories: string[];
+  @prop({ type: () => [String] })
+  public categories!: string[];
 
-    @prop({required: true})
-    public img: string
+  @prop()
+  public img!: string;
 
-    @prop({required: true})
-    public isCraftable: boolean;
+  @prop()
+  public isCraftable!: boolean;
 }
 
 export const MaterialModel = getModelForClass(Material);

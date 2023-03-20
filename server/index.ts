@@ -1,6 +1,9 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+const materialRoutes = require('./routes/materials.routes');
+
+import mongoose from 'mongoose';
 
 dotenv.config();
 
@@ -9,7 +12,27 @@ const app: Express = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
-const port = process.env.PORT;
+// Routes middleware
+app.use(materialRoutes);
+
+const port = process.env.PORT || 3000;
+const db = process.env.DB_CONNECTION;
+
+mongoose.set('strictQuery', false);
+mongoose.connect(db!).then(() => {
+    console.log("Connected to MongoDB");
+}).catch(err => {
+    console.log(err);
+})
+
+// app.get("/", (req, res) => {
+//     res.send("Working");
+// })
+
+app.listen(port, () => {
+    console.log(`Listening on port: ${port}`)
+})
 
 
