@@ -22,16 +22,16 @@ class AuthChecker {
 }
 
 export class User {
-  @prop({ required: true, unique: true })
+  @prop({ unique: true })
   public email: string;
 
-  @prop({ required: true, type: () => [AuthChecker] })
+  @prop({ type: () => [AuthChecker] })
   public auth!: AuthChecker[];
 
-  @prop({ require: true, default: false })
+  @prop({default: false })
   public isAuth: boolean;
 
-  @prop({ type: () => [MaterialReference], required: true })
+  @prop({ type: () => [MaterialReference] })
   public userMaterials: MaterialReference[];
 }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SignupService } from 'src/app/services/signup.service';
+import { UserModel } from 'src/shared/Users.model';
 
 @Component({
   selector: 'app-signup',
@@ -8,27 +10,39 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  @ViewChild('f') signUpForm: NgForm;
-  user = {
-    email: '',
-    emailCon: '',
-  };
+
+  signupForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    emailCon: new FormControl('', Validators.required),
+    question: new FormControl('', Validators.required),
+    answer: new FormControl('', Validators.required),
+  });
 
   isSubmitted = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private signupService: SignupService) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    this.user.email = this.signUpForm.value.email;
-    this.user.emailCon = this.signUpForm.value.emailCon;
-    console.log(this.signUpForm);
-    if(this.user.email !== this.user.emailCon){
-      console.log("Hierdie ding werk nie");
-    }else {
-      this.router.navigate(['/stash', {relativeTo: this.router}]);
-      console.log("navigating")
-    }
+    console.log(this.signupForm);
+
+    const user: UserModel = {
+      email: this.signupForm.controls.email.value,
+      auth: [
+        {
+          question: this.signupForm.controls.question.value,
+          answer: this.signupForm.controls.answer.value,
+        },
+      ],
+      isAuth: false,
+    };
+
+    console.log(user);
+
+    this.signupService.addUser(user).subscribe(res => {
+      console.log('user created:', res)
+      this.router.navigate(['/'])
+    })
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { StashService } from 'src/app/services/stash.service';
 import { MaterialModel } from 'src/shared/Materials.model';
 
@@ -9,11 +10,14 @@ import { MaterialModel } from 'src/shared/Materials.model';
 })
 export class StashComponent implements OnInit {
 
-  constructor(private stashService: StashService) { }
+  id: string;
+
+  constructor(private stashService: StashService, private route: ActivatedRoute) { }
 
   stash: MaterialModel[] = []
 
   ngOnInit(): void {
+
     this.stashService.getAllStash().subscribe((data) => {
       console.log(data);
       this.stash = data;
@@ -22,8 +26,16 @@ export class StashComponent implements OnInit {
 
   display = false;
 
-  showComponent(){
+  showComponent(id: string){
+    this.stashService.getOneItem(id).subscribe((data) => {
+      this.stash = data;
+      console.log(data);
+    });
     this.display = true;
+  }
+
+  showId(id: string){
+    console.log(id);
   }
 
   hideComponent(){

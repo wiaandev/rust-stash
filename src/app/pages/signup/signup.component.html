@@ -28,10 +28,11 @@
       </p>
     </div>
   </div>
+
   <div class="right">
     <h1>Sign Up</h1>
     <div class="form-group">
-      <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <!-- <form (ngSubmit)="onSubmit()" #f="ngForm">
         <label for="email">Email</label>
         <input
           type="email"
@@ -58,12 +59,151 @@
           ><span class="material-symbols-outlined"> error </span> Emails do not
           match</span
         >
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <label for="question">Question</label>
+        <input
+          type="text"
+          placeholder="Your question"
+          name="question"
+          [ngModel]=""
+          required
+          email
+          #question="ngModel"
+        />
+        <span class="error-msg" *ngIf="user.question"
+          ><span class="material-symbols-outlined"> error </span> Emails do not
+          match</span
+        >
+        <br>
+        <br>
+
+        <label for="answer">Answer</label>
+        <input
+          type="answer"
+          placeholder="Your answer"
+          name="answer"
+          [ngModel]=""
+          required
+          email
+          #answer="ngModel"
+        />
+        <span class="error-msg" *ngIf="user.email !== user.emailCon"
+          ><span class="material-symbols-outlined"> error </span> Emails do not
+          match</span
+        >
+
         <app-button
           text="Submit"
           type="submit"
           class="btn-secondary"
         ></app-button>
         <p routerLink="/">Cancel</p>
+      </form> -->
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <span
+          class="error-msg"
+          *ngIf="
+            signupForm.controls.email.value == '' &&
+            signupForm.controls.email.touched
+          "
+          ><span class="material-symbols-outlined"> error </span> Enter an
+          email</span
+        >
+
+        <br />
+        <br />
+
+        <label for="emailCon">Confirm Email</label>
+        <input
+          type="text"
+          id="emailCon"
+          class="form-control"
+          placeholder="Confirm Email"
+          formControlName="emailCon"
+        />
+        <span
+          class="error-msg"
+          *ngIf="
+            signupForm.controls.email.value !==
+              signupForm.controls.emailCon.value &&
+            signupForm.controls.emailCon.touched
+          "
+          ><span class="material-symbols-outlined"> error </span> Emails do not
+          match</span
+        >
+        <span
+          class="error-msg"
+          *ngIf="
+            signupForm.controls.emailCon.value == '' &&
+            signupForm.controls.question.touched
+          "
+          ><span class="material-symbols-outlined"> error </span> Confirm your
+          email</span
+        >
+
+        <br />
+        <br />
+
+        <label for="question">Question</label>
+        <input
+          type="text"
+          id="question"
+          class="form-control"
+          placeholder="Your Question"
+          formControlName="question"
+        />
+
+        <span
+          class="error-msg"
+          *ngIf="
+            signupForm.controls.question.value == '' &&
+            signupForm.controls.question.touched
+          "
+          ><span class="material-symbols-outlined"> error </span> Enter a
+          question</span
+        >
+
+        <br />
+        <br />
+
+        <label for="answer">Answer</label>
+        <input
+          type="text"
+          id="answer"
+          class="form-control"
+          placeholder="Your Answer"
+          formControlName="answer"
+        />
+
+        <span
+          class="error-msg"
+          *ngIf="
+            signupForm.controls.answer.value == '' &&
+            signupForm.controls.answer.touched
+          "
+          ><span class="material-symbols-outlined"> error </span> Enter an
+          answer</span
+        >
+
+        <app-button
+          text="Sign Up"
+          [disabled]="!signupForm.valid"
+          class="btn-secondary"
+          type="submit"
+        ></app-button>
       </form>
     </div>
   </div>

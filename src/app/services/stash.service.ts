@@ -16,4 +16,8 @@ export class StashService{
         return this.http.get<MaterialModel[]>(this.serverLink)
     }
 
+    getOneItem(id: string){
+        return this.http.get<MaterialModel[]>(`${this.serverLink}/${id}`)
+    }
+
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UpdateModalComponent } from './components/update-modal/update-modal.component';
 import { CraftingComponent } from './pages/crafting/crafting.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LocationsComponent } from './pages/locations/locations.component';
@@ -10,6 +11,7 @@ import { StashComponent } from './pages/stash/stash.component';
 const routes: Routes = [
   {path: "", component: LandingComponent},
   {path: "stash", component: StashComponent},
+  {path: "stash/:id", component: UpdateModalComponent},
   {path: "signup", component: SignupComponent},
   {path: "crafting", component: CraftingComponent},
   {path: "locations", component: LocationsComponent},
