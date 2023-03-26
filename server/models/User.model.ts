@@ -1,30 +1,38 @@
-import {prop, getModelForClass, pre} from '@typegoose/typegoose';
+import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
 import { Schema } from 'mongoose';
+import { MaterialModel } from './Material.model';
 
+class MaterialReference {
+  @prop({ ref: MaterialModel})
+  public id!: Ref<typeof MaterialModel>;
 
-class MaterialReference{
-    @prop({ required: true,  _id: false })
-    public id!: Schema.Types.ObjectId;
-  
-    @prop({ required: true, default: 0 })
-    public qty!: number;
+  @prop({ default: 30 })
+  public qty!: number;
 
-    @prop({required: true, default: true})
-    public lowQty!: boolean;
+  @prop({ required: true, default: false })
+  public lowQty!: boolean;
 }
 
-export class User{
-    @prop({required: true, unique: true})
-    public email: string;
+class AuthChecker {
+  @prop({ required: true })
+  public question!: string;
 
-    @prop({require: true, default: false})
-    public isAuth: boolean
-
-    @prop({required: true, type: () => [MaterialReference]})
-    public userMaterials: MaterialReference[];
+  @prop({ required: true })
+  public answer!: string;
 }
 
-export const MaterialModel = getModelForClass(User);
+export class User {
+  @prop({ required: true, unique: true })
+  public email: string;
 
+  @prop({ required: true, type: () => [AuthChecker] })
+  public auth!: AuthChecker[];
 
+  @prop({ require: true, default: false })
+  public isAuth: boolean;
 
+  @prop({ type: () => [MaterialReference], required: true })
+  public userMaterials: MaterialReference[];
+}
+
+export const UserModel = getModelForClass(User);
