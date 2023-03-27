@@ -9,10 +9,17 @@ import { MaterialModel } from 'src/shared/Materials.model';
 export class UpdateModalComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   @Output() btnClick = new EventEmitter();
-  @Input() selectedMaterial: MaterialModel;
+  @Input() name: string;
+  @Input() qty: number;
+  @Input() desc: string;
+  @Input() img: string;
+
+  @Input() categories: string[];
+
 
   btnClose() {
     this.btnClick.emit();

@@ -3,11 +3,14 @@
     display: flex;
 
     .left{
+        position: fixed;
+        left: 0;
         display: flex;
         flex-flow: column;
         width: 20%;
         margin-right: 10px;
         height: 100vh;
+        border-right: 2px solid $black;
     }
 
     hr{
@@ -15,6 +18,7 @@
     }
 
     .right{
+        margin-left: 20%;
         .right__header-group{
             display: flex;
             width: 70%;

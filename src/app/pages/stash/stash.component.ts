@@ -6,40 +6,54 @@ import { MaterialModel } from 'src/shared/Materials.model';
 @Component({
   selector: 'app-stash',
   templateUrl: './stash.component.html',
-  styleUrls: ['./stash.component.scss']
+  styleUrls: ['./stash.component.scss'],
 })
 export class StashComponent implements OnInit {
-
   id: string;
+  materialData: MaterialModel[];
 
-  constructor(private stashService: StashService, private route: ActivatedRoute) { }
+  name: string;
+  qty: number;
+  desc: string;
+  img: string;
+  categories: string[];
 
-  stash: MaterialModel[] = []
+  constructor(
+    private stashService: StashService,
+    private route: ActivatedRoute
+  ) {}
+
+  stash: MaterialModel[];
 
   ngOnInit(): void {
-
     this.stashService.getAllStash().subscribe((data) => {
-      console.log(data);
       this.stash = data;
-    })
+      console.log(data);
+    });
   }
 
   display = false;
 
-  showComponent(id: string){
+  showComponent(id: string) {
     this.stashService.getOneItem(id).subscribe((data) => {
-      this.stash = data;
-      console.log(data);
+      this.name = data['name'];
+      this.qty = data['qty'];
+      this.desc = data['desc'];
+      this.img = data['img'];
+      this.categories = data['categories'];
+      this.materialData = data;
+      console.log(this.materialData);
+      this.display = true;
+      // this.hideComponent();
     });
-    this.display = true;
   }
 
-  showId(id: string){
+  showId(id: string) {
     console.log(id);
   }
 
-  hideComponent(){
+  hideComponent(id: string) {
     this.display = false;
+    // this.hideComponent();
   }
-
 }

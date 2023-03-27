@@ -1,28 +1,56 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-.container{
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: rgba($color: $black, $alpha: 0.5);
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  width: 100vw;
+  height: 100vh;
+  .modal {
     width: 100vw;
-    height: 100vh;
-    .modal{
-        width: 100vw;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: $white;
-        .left{
-            width: 10%;
-        }
-
-        .right{
-            display: flex;
-            align-items: center;
-        }
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: $white;
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
     }
+
+    .middle {
+      width: 50vw;
+
+      .middle__flex{
+        display: flex;
+        width: 20%;
+        justify-content: space-between;
+      }
+
+      .middle__category{
+        padding: 5px;
+        color: $white;
+        background-color: black;
+        width: fit-content;
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      text-align: center;
+      width: 20%;
+      .right__flex {
+        justify-content: space-evenly;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
 }

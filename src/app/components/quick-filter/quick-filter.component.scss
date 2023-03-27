@@ -1,9 +1,9 @@
-@import '../../../styles.scss';
-.filter-item{
-    padding: 20px 10px;
-
-    &:hover{
-        color: $red;
-        cursor: pointer;
-    }
+@import "../../../styles.scss";
+.filter-item {
+  padding: 20px 0px;
+  width: 100%;
+  &:hover {
+    color: $red;
+    cursor: pointer;
+  }
 }

@@ -1,20 +1,32 @@
 <div class="container">
-    <div class="modal">
-        <div class="left">
-            <img src="../../../assets/image 10.png" width="300px"/>
-        </div>
-        <div class="middle">
-            <h1>Wood</h1>
-            <br>
-            <p>Wood is one of the most common and useful basic resources in the <br> game. It can be used to craft Camp Fires, Storage Boxes and many other <br> items, as seen in the info-box. It is also used in conjunction with the <br> Building Plan to build structures.</p>
-            <app-button text="Save" class="btn-primary"></app-button>
-            <app-button text="Close" class="btn-secondary" (btnClick)="btnClose()"></app-button>
-        </div>
-        <div class="right">
-            <h4>Update Quantity</h4>
-            <app-button text="-" class="btn-primary"></app-button>
-            <p>9</p>
-            <app-button text="+" class="btn-primary"></app-button>
-        </div>
+  <div class="modal">
+    <div class="left">
+      <img src="{{ img }}" width="300px"/>
     </div>
+    <div class="middle">
+      <h1>{{ name }}</h1>
+      <br />
+      <div class="middle__flex" *ngFor="let item of categories; let i = index">
+        <p class="middle__category">{{item}}</p>
+      </div>
+      <br />
+      <p>{{ desc }}</p>
+      <div class="middle__flex">
+        <app-button text="Save" class="btn-primary"></app-button>
+        <app-button
+          text="Close"
+          class="btn-secondary"
+          (btnClick)="btnClose()"
+        ></app-button>
+      </div>
+    </div>
+    <div class="right">
+      <h4>Update Quantity</h4>
+      <div class="right__flex">
+        <app-button text="-" class="btn-primary"></app-button>
+        <h4><b>30</b></h4>
+        <app-button text="+" class="btn-primary"></app-button>
+      </div>
+    </div>
+  </div>
 </div>
