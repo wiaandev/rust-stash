@@ -27,11 +27,11 @@
       </div>
       <app-update-modal
         *ngIf="display"
-        [name]="name"
-        [desc]="desc"
-        [img]="img"
-        [qty]="qty"
-        [categories]="categories"
+        [name]="materialData['name']"
+        [desc]="materialData['desc']"
+        [img]="materialData['img']"
+        [qty]="2"
+        [categories]="materialData['categories']"
         (click)="hideComponent()"
       ></app-update-modal>
     </div>

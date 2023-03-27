@@ -12,11 +12,6 @@ export class StashComponent implements OnInit {
   id: string;
   materialData: MaterialModel[];
 
-  name: string;
-  qty: number;
-  desc: string;
-  img: string;
-  categories: string[];
 
   constructor(
     private stashService: StashService,
@@ -36,15 +31,9 @@ export class StashComponent implements OnInit {
 
   showComponent(id: string) {
     this.stashService.getOneItem(id).subscribe((data) => {
-      this.name = data['name'];
-      this.qty = data['qty'];
-      this.desc = data['desc'];
-      this.img = data['img'];
-      this.categories = data['categories'];
       this.materialData = data;
       console.log(this.materialData);
       this.display = true;
-      // this.hideComponent();
     });
   }
 
