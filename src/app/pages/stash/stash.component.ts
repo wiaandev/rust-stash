@@ -57,7 +57,7 @@ export class StashComponent implements OnInit {
     console.log(id);
   }
 
-  hideComponent(id: string) {
+  hideComponent() {
     this.display = false;
     // this.hideComponent();
   }

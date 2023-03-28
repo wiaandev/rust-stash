@@ -7,16 +7,30 @@ import { MaterialModel } from 'src/shared/Materials.model';
   styleUrls: ['./update-modal.component.scss'],
 })
 export class UpdateModalComponent implements OnInit {
+
+  materialQty:number = 30;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   @Output() btnClick = new EventEmitter();
   @Input() name: string;
-  @Input() qty: number;
+  @Input() qty: number = this.materialQty;
   @Input() desc: string;
   @Input() img: string;
   @Input() categories: string[];
+
+  increaseQty(){
+    this.materialQty++;
+  }
+
+  decreaseQty(){
+    if (this.materialQty > 1) {
+      this.materialQty--;
+    }
+  }
+
 
   btnClose() {
     this.btnClick.emit();
