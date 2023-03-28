@@ -1,7 +1,7 @@
 @import "../../../styles.scss";
 .container {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   // flex-flow: column;
   text-align: left;
   justify-content: space-between;
@@ -29,5 +29,28 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.disabled{
+
+  .img-block:nth-child(1){
+    opacity: 0.2;
+  }
+}
+
+.craft-error{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  color: $white;
+  background-color: $black;
+  width: fit-content;
+  padding: 10px;
+  margin-bottom: 50px;
+
+  .material-symbols-outlined{
+    margin-right: 10px;
+    color: $red;
   }
 }
