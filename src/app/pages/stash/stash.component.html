@@ -4,8 +4,17 @@
   </div>
   <div class="right">
     <div class="right__header-group">
-      <p><b>{{ stash.length }}</b> Total Stash Items</p>
+      <p>
+        <b>{{ stash.length }}</b> Total Stash Items
+      </p>
       <h1>Stash</h1>
+      <input
+        placeholder="Filter..."
+        class="right__header-group__filter"
+        type="text"
+        [(ngModel)]="searchParam"
+        (ngModelChange)="searchStash()"
+      />
     </div>
     <div class="right__btn-group">
       <app-button text="Wood Base" class="btn-primary"></app-button>
@@ -24,6 +33,9 @@
             (click)="showComponent(item._id)"
           ></app-button>
         </div>
+      </div>
+      <div class="none-found" *ngIf="stash.length === 0">
+        <h4>! No Stash Items found !</h4>
       </div>
       <app-update-modal
         *ngIf="display"

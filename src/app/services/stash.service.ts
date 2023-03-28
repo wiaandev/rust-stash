@@ -1,23 +1,27 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { MaterialModel } from "src/shared/Materials.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MaterialModel } from 'src/shared/Materials.model';
 
-@Injectable({providedIn: 'root'})
-export class StashService{
+@Injectable({ providedIn: 'root' })
+export class StashService {
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient){}
+  serverLink: string = 'http://localhost:3000/materials';
 
-    serverLink: string = "http://localhost:3000/materials"
+  materials: MaterialModel[] = [];
 
-    materials: MaterialModel[] = [];
+  getAllStash(): Observable<MaterialModel[]> {
+    return this.http.get<MaterialModel[]>(this.serverLink);
+  }
 
-    getAllStash(): Observable<MaterialModel[]>{
-        return this.http.get<MaterialModel[]>(this.serverLink)
-    }
+  getOneItem(id: string) {
+    return this.http.get<MaterialModel[]>(`${this.serverLink}/${id}`);
+  }
 
-    getOneItem(id: string){
-        return this.http.get<MaterialModel[]>(`${this.serverLink}/${id}`)
-    }
-
+  getStashBySearch(search: string): Observable<MaterialModel[]> {
+    return this.http.get<MaterialModel[]>(
+      `${this.serverLink}?search=${search}`
+    );
+  }
 }

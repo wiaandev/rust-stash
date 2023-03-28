@@ -21,9 +21,32 @@
         margin-left: 20%;
         .right__header-group{
             display: flex;
-            width: 70%;
-            justify-content: space-evenly;
+            width: 100%;
+            justify-content: space-around;
             align-items: center;
+
+            .right__header-group__filter{
+                padding: 15px;
+                border: 1px solid $black;
+                background-color: transparent;
+                outline: none;
+                width: 25%;
+                transition: 0.2s ease-in-out;
+                font-size: $headingp;
+
+                &:focus{
+                    border: 1px solid $red;
+                    color: $white;
+                    background-color: $red;
+                }
+
+                &::placeholder{
+                    opacity: 0.5;
+                    font-family: 'Manrope', sans-serif;
+                    color: $black;
+                    font-size: $headingp;
+                }
+            }
         }
 
         .right__btn-group{
@@ -83,6 +106,13 @@
         }
 
         width: 80%;
+
+        .none-found{
+            background-color: $black;
+            color: $white;
+            padding: 10px;
+            margin: 0 auto;
+        }
     }
 
 }
