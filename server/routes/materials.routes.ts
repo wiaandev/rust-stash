@@ -7,15 +7,15 @@ const materialController = new MaterialController();
 
 materialRouter.get(
   '/materials',
-  materialController.getAllMaterials.bind(materialController)
+  materialController.getAllMaterials
 );
 materialRouter.get(
   '/materials/:id',
-  materialController.getOneMaterial.bind(materialController)
+  materialController.getOneMaterial
 );
 materialRouter.post(
   '/materials',
-  materialController.addMaterial.bind(materialController)
+  materialController.addMaterial
 );
 
 module.exports = materialRouter;

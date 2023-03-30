@@ -14,18 +14,44 @@ class UserController {
     // Getting all the inventory items
     const materials = await MaterialModel.find();
 
-    const materialIds = materials.map(item => item._id)
+    const materialIds = materials.map((item) => item._id);
     console.log(materialIds);
 
     const user = await UserModel.create({
       email,
       auth,
       isAuth,
-      userMaterials: materialIds.map(id => ({id})),
+      userMaterials: materialIds.map((id) => ({ id })),
     });
 
     console.log(user.userMaterials);
     res.send(user);
+  }
+
+  async loginUser(req: Request, res: Response) {
+    try {
+      const { email, question, answer } = req.body;
+
+      const user = await UserModel.findOne({ email: email });
+
+      if (user) {
+        return res.status(200).json({ success: true });
+      } else {
+        res.status(409).json({ msg: 'user not found' });
+      }
+
+      if (
+        question === user!.auth[0].question! &&
+        answer === user!.auth[0].answer!
+      ) {
+        user!.isAuth = true;
+        return res.status(200).json({ success: true });
+      } else {
+        res.status(409).json({ msg: 'question and answers error' });
+      }
+    } catch (err) {
+      res.status(409).json({ msg: err });
+    }
   }
 }
 

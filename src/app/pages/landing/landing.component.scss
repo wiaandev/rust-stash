@@ -41,6 +41,19 @@
     }
   }
 
+  .hide {
+    display: none;
+  }
+
+  .right__auth{
+    background-color: $red;
+    width: 100vw;
+    height: 100%;
+    color: $white;
+    text-align: center;
+    padding: 20px
+  }
+
   // Styling
   .slider {
     background: transparent;

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
+  isLoggedIn: boolean = false;
+  authMode: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,5 +42,14 @@ export class LandingComponent implements OnInit {
     "../../../assets/image 20.png",
     "../../../assets/image 21.png",
   ]
+
+  checkUser(){
+    this.authMode = true;
+    if(sessionStorage.getItem('user') !== ''){
+      this.isLoggedIn = true;
+    } else{
+      this.isLoggedIn = false;
+    }
+  }
 
 }

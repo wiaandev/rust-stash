@@ -4,17 +4,17 @@
     <h1>Rust Stash</h1>
     <h4>Manage. Craft. Track</h4>
     <app-button
-      routerLink="/stash"
       text="Access Stash"
       class="btn-primary"
       [disabled]="false"
+      (btnClick)="checkUser()"
     ></app-button>
     <p>or</p>
     <br>
     <p style="text-decoration: underline; cursor:pointer" routerLink="/signup">Sign up</p>
   </div>
   <div class="right">
-    <div class="slider">
+    <div class="slider" [ngClass]="authMode ? 'hide': ''">
       <div class="slide-track">
         <div class="slide" *ngFor="let image of images">
           <img [src]="image" height="100" width="250" alt="" />
@@ -23,6 +23,11 @@
           <img [src]="image" height="100" width="250" alt="" />
         </div>
       </div>
+    </div>
+    <div class="right__auth" [ngClass]="!authMode ? 'hide' : ''">
+      <h1>Log In</h1>
+      <input type="text" placeholder="email">
+      <app-button class="btn-secondary" text="Next >" routerLink='/stash'></app-button>
     </div>
   </div>
 </div>
