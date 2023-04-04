@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
-import { StashService } from 'src/app/services/stash.service';
+import { StashService } from 'src/shared/services/stash.service';
 import { MaterialModel } from 'src/shared/Materials.model';
 
 @Component({

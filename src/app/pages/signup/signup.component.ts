@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from 'src/app/services/signup.service';
+import { SignupService } from 'src/shared/services/signup.service';
 import { UserModel } from 'src/shared/Users.model';
 
 @Component({

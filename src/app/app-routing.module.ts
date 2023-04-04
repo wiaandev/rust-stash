@@ -7,7 +7,7 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StashComponent } from './pages/stash/stash.component';
-import { AuthGuard } from './services/auth.guard.service';
+import { AuthGuard } from '../shared/services/auth.guard.service';
 
 const routes: Routes = [
   {path: "", component: LandingComponent},
