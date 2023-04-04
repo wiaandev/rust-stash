@@ -26,7 +26,7 @@
       <div class="right__inventory__card" *ngFor="let item of stash">
         <img class="right__inventory__card__image" src="{{ item.img }}" />
         <p>{{ item.name }}</p>
-        <p><b>30</b></p>
+        <p><b>{{item.qty}}</b></p>
         <div class="right__inventory__card__overlay_btn">
           <app-button
             text="Update"
@@ -43,7 +43,7 @@
         [name]="materialData['name']"
         [desc]="materialData['desc']"
         [img]="materialData['img']"
-        [qty]="2"
+        [qty]="materialData['qty']"
         [categories]="materialData['categories']"
         (btnClick)="hideComponent()"
       ></app-update-modal>

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 const materialRoutes = require('./routes/materials.routes');
 const userRoutes = require('./routes/users.routes');
+const locationRoutes = require('./routes/locations.routes');
 
 import mongoose from 'mongoose';
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes middleware
 app.use(materialRoutes);
 app.use(userRoutes);
+app.use(locationRoutes);
 
 const port = process.env.PORT || 3001;
 const db = process.env.DB_CONNECTION;

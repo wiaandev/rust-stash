@@ -16,18 +16,18 @@ export class UpdateModalComponent implements OnInit {
 
   @Output() btnClick = new EventEmitter();
   @Input() name: string;
-  @Input() qty: number = this.materialQty;
+  @Input() qty: number;
   @Input() desc: string;
   @Input() img: string;
   @Input() categories: string[];
 
   increaseQty(){
-    this.materialQty++;
+    this.qty++;
   }
 
   decreaseQty(){
     if (this.materialQty > 1) {
-      this.materialQty--;
+      this.qty--;
     }
   }
 

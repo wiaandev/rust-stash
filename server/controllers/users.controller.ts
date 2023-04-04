@@ -13,20 +13,13 @@ class UserController {
   async addUser(req: Request, res: Response): Promise<void> {
     const { email, auth, isAuth } = req.body;
 
-    // Getting all the inventory items
-    const materials = await MaterialModel.find();
-
-    const materialIds = materials.map((item) => item._id);
-    console.log(materialIds);
-
     const user = await UserModel.create({
       email,
       auth,
-      isAuth,
-      userMaterials: materialIds.map((id) => ({ id })),
+      isAuth
     });
 
-    console.log(user.userMaterials);
+    // console.log(user.userMaterials);
     res.send(user);
   }
 

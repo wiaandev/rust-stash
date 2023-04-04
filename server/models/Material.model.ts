@@ -1,4 +1,5 @@
 import { prop, getModelForClass } from '@typegoose/typegoose';
+import { Schema } from 'mongoose';
 
 class Material {
   @prop()
@@ -6,6 +7,12 @@ class Material {
 
   @prop()
   public desc!: string;
+
+  @prop()
+  public qty!: number;
+
+  @prop({default: false})
+  public lowQty!: boolean;
 
   @prop({ type: () => [String] })
   public categories!: string[];
