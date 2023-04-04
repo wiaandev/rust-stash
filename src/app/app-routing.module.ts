@@ -7,14 +7,15 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StashComponent } from './pages/stash/stash.component';
+import { AuthGuard } from './services/auth.guard.service';
 
 const routes: Routes = [
   {path: "", component: LandingComponent},
-  {path: "stash", component: StashComponent},
+  {path: "stash", component: StashComponent, canActivate: [AuthGuard]},
   {path: "stash/:id", component: UpdateModalComponent},
   {path: "signup", component: SignupComponent},
-  {path: "crafting", component: CraftingComponent},
-  {path: "locations", component: LocationsComponent},
+  {path: "crafting", component: CraftingComponent, canActivate: [AuthGuard]},
+  {path: "locations", component: LocationsComponent, canActivate: [AuthGuard]},
   {path: "**", component: NotFoundComponent},
 
 ];

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="modal" *ngIf="!foundUser">
+    <h2>Verify Yourself!</h2>
+    <h4>Enter Your Email</h4>
+    <form class="form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        class="input"
+        placeholder="Email..."
+        formControlName="email"
+        id="name"
+      />
+      <app-button
+        text="Next >"
+        class="btn-secondary"
+        type="submit"
+      ></app-button>
+    </form>
+  </div>
+
+  <div class="modal" *ngIf="foundUser">
+    <h3>Verify Yourself</h3>
+    <h4>Answer your security question</h4>
+    <p>{{data.auth[0].question}}
+    </p>
+    <form class="form" [formGroup]="answerForm" (ngSubmit)="onLogin()">
+      <input
+        type="text"
+        class="input"
+        placeholder="Your Answer"
+        formControlName="answer"
+      />
+      <app-button
+        text="Log In"
+        class="btn-secondary"
+        type="submit"
+      ></app-button>
+    </form>
+  </div>
+</div>

@@ -17,6 +17,7 @@ import { UpdateModalComponent } from './components/update-modal/update-modal.com
 import {LocationsComponent } from './pages/locations/locations.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthModalComponent } from './components/auth-modal/auth-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateModalComponent,
     LocationsComponent,
     NotFoundComponent,
+    AuthModalComponent,
   ],
   imports: [
     BrowserModule,

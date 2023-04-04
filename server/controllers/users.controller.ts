@@ -3,9 +3,11 @@ import { MaterialModel } from '../models/Material.model';
 import { UserModel } from '../models/User.model';
 
 class UserController {
-  async getAllUsers(req: Request, res: Response): Promise<void> {
-    const users = await UserModel.find();
-    res.json(users);
+  async getAllUsers(req: Request, res: Response) {
+    console.log('running');
+    const users = await UserModel.find({});
+    console.log('users is running');
+    return res.json(users);
   }
 
   async addUser(req: Request, res: Response): Promise<void> {
@@ -28,6 +30,22 @@ class UserController {
     res.send(user);
   }
 
+  async getUser(req: Request, res: Response) {
+    try {
+      const email = req.params.email;
+      const user = await UserModel.findOne({ email });
+
+      if (user) {
+        console.log(user)
+        res.send(user);
+      } else {
+        res.status(409).json({ msg: 'user not found' });
+      }
+    } catch (err) {
+      res.status(409).json({ msg: err });
+    }
+  }
+
   async loginUser(req: Request, res: Response) {
     try {
       const { email, question, answer } = req.body;
@@ -35,6 +53,7 @@ class UserController {
       const user = await UserModel.findOne({ email: email });
 
       if (user) {
+        console.log('user found');
         return res.status(200).json({ success: true });
       } else {
         res.status(409).json({ msg: 'user not found' });

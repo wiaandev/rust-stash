@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +11,7 @@ export class LandingComponent implements OnInit {
   isLoggedIn: boolean = false;
   authMode: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -44,11 +45,10 @@ export class LandingComponent implements OnInit {
   ]
 
   checkUser(){
-    this.authMode = true;
-    if(sessionStorage.getItem('user') !== ''){
-      this.isLoggedIn = true;
-    } else{
-      this.isLoggedIn = false;
+    if(sessionStorage.getItem('user') === null){
+      this.authMode = true;
+    }else {
+      this.router.navigate(['/stash']);
     }
   }
 
