@@ -1,5 +1,8 @@
+<div class="outer">
+
+
 <div class="container" [ngClass]="!canCraft ? 'disabled' : 'container'">
-  <h2 style="height: 1%">{{ name }}</h2>
+  <h2>{{ name }}</h2>
   <div class="recipe-block">
     <!-- <div class="error-block"> -->
       <div class="img-block" *ngFor="let item of ingredients; let i = index">
@@ -11,15 +14,16 @@
       </div>
     <!-- </div> -->
   </div>
-  <div class="tool-block">
-    <img src="{{ img }}" alt="" width="100" />
-    <p>{{ name }}</p>
-    <app-button
-      text="CRAFT"
-      class="btn-craft"
-      [disabled]="!canCraft"
-    ></app-button>
-  </div>
+</div>
+<div class="tool-block">
+  <img src="{{ img }}" alt="" width="100" />
+  <p>{{ name }}</p>
+  <app-button
+    text="CRAFT"
+    class="btn-craft"
+    [disabled]="!canCraft"
+  ></app-button>
+</div>
 </div>
 <p class="craft-error" *ngIf="!canCraft">
   <span class="material-symbols-outlined">Error</span>You do not have one or

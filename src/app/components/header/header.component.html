@@ -1,10 +1,17 @@
 <div class="header">
-  <img src="../../assets/logo-dark.svg" alt="" width="250px" routerLink="/" style="cursor: pointer"/>
+  <img
+    src="../../assets/logo-dark.svg"
+    alt=""
+    width="250px"
+    routerLink="/"
+    style="cursor: pointer"
+  />
 
   <div class="nav-group">
     <li><a routerLink="/stash" routerLinkActive="active">Stash</a></li>
     <li><a routerLink="/crafting" routerLinkActive="active">Craft</a></li>
     <li><a routerLink="/locations" routerLinkActive="active">Bases</a></li>
     <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLinkActive="active" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a></li>
   </div>
 </div>

@@ -1,5 +1,6 @@
 <div class="container">
   <div class="left">
+    <!-- TODO: Add more filters -->
     <app-quick-filter></app-quick-filter>
   </div>
   <div class="right">
@@ -17,6 +18,7 @@
       />
     </div>
     <div class="right__btn-group">
+      <!-- TODO: Add filtering functionality -->
       <app-button text="Wood Base" class="btn-primary"></app-button>
       <app-button text="Stone Base" class="btn-primary"></app-button>
       <app-button text="Metal Base" class="btn-primary"></app-button>
@@ -26,7 +28,8 @@
       <div class="right__inventory__card" *ngFor="let item of stash">
         <img class="right__inventory__card__image" src="{{ item.img }}" />
         <p>{{ item.name }}</p>
-        <p><b>{{item.qty}}</b></p>
+        <p class="right__inventory__card__qty"><b>{{item.qty}}</b></p>
+        <span class="material-symbols-outlined" *ngIf="item.qty < 40">Error</span>
         <div class="right__inventory__card__overlay_btn">
           <app-button
             text="Update"

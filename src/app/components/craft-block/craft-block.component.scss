@@ -1,9 +1,13 @@
 @import "../../../styles.scss";
+.outer{
+  display: flex;
+}
 .container {
   display: flex;
-  text-align: left;
-  justify-content: space-between;
+  width: 80%;
+  text-align: center;
   align-items: center;
+  justify-content: center;
   background-color: $red;
 
 
@@ -21,8 +25,10 @@
     align-items: center;
     color: $white;
   }
+}
 
   .tool-block {
+    width: 20%;
     background-color: $black;
     padding: 20px;
     color: $white;
@@ -31,7 +37,6 @@
     text-align: center;
     align-items: center;
   }
-}
 
 .disabled{
 
