@@ -19,8 +19,6 @@ export class User {
   @prop({default: false })
   public isAuth: boolean;
 
-  // @prop({ type: () => [MaterialReference] })
-  // public userMaterials: MaterialReference[];
 }
 
 export const UserModel = getModelForClass(User);

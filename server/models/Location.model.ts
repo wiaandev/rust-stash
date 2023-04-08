@@ -1,8 +1,5 @@
-import { MaterialInterface } from '../interfaces/materials.interface';
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
-import { MaterialModel } from './Material.model';
 import { Schema } from 'mongoose';
-
 
 export class Location {
   @prop()
@@ -11,7 +8,7 @@ export class Location {
   public address!: string;
   @prop()
   public img!: string;
-  @prop({_id: false, type: () => [Schema.Types.ObjectId]})
+  @prop({ _id: false, type: () => [Schema.Types.ObjectId] })
   public locationItems!: Schema.Types.ObjectId[];
 }
 

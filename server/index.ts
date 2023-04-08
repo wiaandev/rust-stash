@@ -4,6 +4,7 @@ import cors from 'cors';
 const materialRoutes = require('./routes/materials.routes');
 const userRoutes = require('./routes/users.routes');
 const locationRoutes = require('./routes/locations.routes');
+const recipeRoutes = require('./routes/recipes.routes');
 
 import mongoose from 'mongoose';
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(materialRoutes);
 app.use(userRoutes);
 app.use(locationRoutes);
+app.use(recipeRoutes);
 
 const port = process.env.PORT || 3001;
 const db = process.env.DB_CONNECTION;

@@ -1,8 +1,22 @@
-<div class="container" style="display: flex; justify-content: center; flex-flow: column; width: 100%; text-align: center">
-    <h1>Craft</h1>
-    <br>
-    <br>
-    <app-craft-block [canCraft]="false"></app-craft-block>
-    <br>
-    <app-craft-block [canCraft]="true"></app-craft-block>
+<div
+  class="container"
+  style="
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+    text-align: center;
+  "
+>
+  <h1>Craft</h1>
+  <br />
+  <br />
+  <app-craft-block
+  *ngFor="let recipe of recipes"
+  [name]="recipe.name"
+  [img]="recipe.recipeImg"
+  [canCraft]="recipe.ingredients.canCraft"
+  [ingredients]="recipe.ingredients"
+></app-craft-block>
+  <br />
 </div>

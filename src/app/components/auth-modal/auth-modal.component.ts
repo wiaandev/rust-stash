@@ -44,7 +44,6 @@ export class AuthModalComponent implements OnInit {
         console.log(err);
       }
     });
-    console.log('Click event')
     return this.data;
   }
 

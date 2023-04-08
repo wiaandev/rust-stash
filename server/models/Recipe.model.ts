@@ -1,62 +1,31 @@
-import { LocationInterface } from '../interfaces/location.interface';
-import { MaterialInterface } from '../interfaces/materials.interface';
+import { prop, getModelForClass } from '@typegoose/typegoose';
+import { Schema } from 'mongoose';
 
-export class RecipeModel {
-  public id: number;
-  public name: string;
-  public desc: string;
-  public categories: string[];
-  // public qty: number;
-  // public lowQty: boolean;
-  public img: string;
-  // public locations: LocationInterface[];
-  public materials: MaterialInterface[];
+class Ingredients {
 
-  constructor(
-    id: number,
-    name: string,
-    desc: string,
-    categories: string[],
-    // qty: number,
-    // lowQty: boolean,
-    img: string,
-    // locations: LocationInterface[],
-    materials: MaterialInterface[]
-  ) {
-    this.id = id;
-    this.name = name;
-    this.desc = desc;
-    this.categories = categories;
-    // this.qty = qty;
-    // this.lowQty = lowQty;
-    this.img = img;
-    // this.locations = locations;
-    this.materials = materials;
-  }
+  @prop({_id: false})
+  public inventoryId: Schema.Types.ObjectId;
+
+  @prop()
+  public requiredAmount!: number;
+
+  @prop({default: false})
+  public canCraft!: boolean;
+
 }
 
-[
-  {
-    _id: "fdsjkfjsdfds2e324io",
-    name: 'ak47',
-    categories: ['weaponry', 'tools'],
-    img: 'https://www.feetfinder.com/',
-    materials: [
-      {
-        name: 'wood',
-        qty: 2,
-        img: 'http://www.feetfinder.com',
-      },
-      {
-        name: 'wood',
-        qty: 2,
-        img: 'http://www.feetfinder.com',
-      },
-      {
-        name: 'wood',
-        qty: 2,
-        img: 'http://www.feetfinder.com',
-      }
-    ]
-  }
-]
+class Recipe {
+  @prop()
+  public name!: string;
+
+  @prop({type: () => [String]})
+  public categories!: string[];
+
+  @prop({ type: () => [Ingredients] })
+  public ingredients!: Ingredients[];
+
+  @prop()
+  public recipeImg!: string;
+}
+
+export const RecipeModel = getModelForClass(Recipe);

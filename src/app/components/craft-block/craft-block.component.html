@@ -1,28 +1,24 @@
 <div class="container" [ngClass]="!canCraft ? 'disabled' : 'container'">
-  <h2 style="height: 1%">Stone Pickaxe</h2>
+  <h2 style="height: 1%">{{ name }}</h2>
   <div class="recipe-block">
-    <div class="error-block">
-      <div class="img-block">
-        <img src="../../../assets/image 3.png" alt="" width="100" />
-        <p>Rifle Body</p>
-        <h4><b>3x</b></h4>
+    <!-- <div class="error-block"> -->
+      <div class="img-block" *ngFor="let item of ingredients; let i = index">
+        <img src="{{ item.inventoryId.img }}" alt="" width="100" />
+        <p>{{ item.inventoryId.name }}</p>
+        <h4>
+          <b>{{ item.requiredAmount }}x</b>
+        </h4>
       </div>
-    </div>
-    <div class="img-block">
-      <img src="../../../assets/image 5.png" alt="" width="100" />
-      <p>Spring</p>
-      <h4><b>1x</b></h4>
-    </div>
-    <div class="img-block">
-      <img src="../../../assets/image 11.png" alt="" width="100" />
-      <p>Gear</p>
-      <h4><b>25x</b></h4>
-    </div>
+    <!-- </div> -->
   </div>
   <div class="tool-block">
-    <img src="../../../assets/image 21.png" alt="" width="100" />
-    <p>Sheet Metal</p>
-    <app-button text="CRAFT" class="btn-craft" [disabled]="!canCraft"></app-button>
+    <img src="{{ img }}" alt="" width="100" />
+    <p>{{ name }}</p>
+    <app-button
+      text="CRAFT"
+      class="btn-craft"
+      [disabled]="!canCraft"
+    ></app-button>
   </div>
 </div>
 <p class="craft-error" *ngIf="!canCraft">

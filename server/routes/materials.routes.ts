@@ -1,6 +1,5 @@
 import express, { Express, Request, Response } from 'express';
 import { MaterialController } from '../controllers/materials.controller';
-import { MaterialModel } from '../models/Material.model';
 
 const materialRouter: Express = express();
 const materialController = new MaterialController();

@@ -1,5 +1,4 @@
 import { prop, getModelForClass } from '@typegoose/typegoose';
-import { Schema } from 'mongoose';
 
 class Material {
   @prop()

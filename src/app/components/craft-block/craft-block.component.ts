@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-craft-block',
@@ -7,11 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CraftBlockComponent implements OnInit {
 
+  @Output() btnClick = new EventEmitter();
+  @Input() canCraft: boolean;
+  @Input() name: string;
+  @Input() img: string;
+  @Input() ingredients: [];
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  @Input() canCraft: boolean;
 
 }

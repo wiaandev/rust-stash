@@ -16,7 +16,7 @@ class UserController {
     const user = await UserModel.create({
       email,
       auth,
-      isAuth
+      isAuth,
     });
 
     // console.log(user.userMaterials);
@@ -29,7 +29,7 @@ class UserController {
       const user = await UserModel.findOne({ email });
 
       if (user) {
-        console.log(user)
+        console.log(user);
         res.send(user);
       } else {
         res.status(409).json({ msg: 'user not found' });
@@ -40,29 +40,42 @@ class UserController {
   }
 
   async loginUser(req: Request, res: Response) {
+    //   try {
+    //     const { email, question, answer } = req.body;
+
+    //     const user = await UserModel.findOne({ email: email });
+
+    //     if (!user) {
+    //       console.log('user found');
+    //       return res.status(409).json({ msg: 'user not found' });
+    //     }
+
+    //     if (
+    //       question === user!.auth[0].question! &&
+    //       answer === user!.auth[0].answer!
+    //     ) {
+    //       user!.isAuth = true;
+    //       return res.status(200).json({ success: true });
+    //     } else {
+    //       res.status(409).json({ msg: 'question and answers error' });
+    //     }
+    //   } catch (err) {
+    //     res.status(409).json({ msg: err });
+    //   }
+    // }
+
     try {
       const { email, question, answer } = req.body;
-
       const user = await UserModel.findOne({ email: email });
 
-      if (user) {
-        console.log('user found');
-        return res.status(200).json({ success: true });
-      } else {
-        res.status(409).json({ msg: 'user not found' });
+      if (!user) {
+        return res
+          .status(404)
+          .json({ msg: `user with ${email} was not found.` });
       }
-
-      if (
-        question === user!.auth[0].question! &&
-        answer === user!.auth[0].answer!
-      ) {
-        user!.isAuth = true;
-        return res.status(200).json({ success: true });
-      } else {
-        res.status(409).json({ msg: 'question and answers error' });
-      }
-    } catch (err) {
-      res.status(409).json({ msg: err });
+      return res.status(200).json({ auth: user.auth[0] });
+    } catch (error) {
+      return res.status(500).send(error);
     }
   }
 }

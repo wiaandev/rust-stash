@@ -1,0 +1,192 @@
+[
+    {
+        "name": "Research Table",
+        "categories": ["Crafting", "Tools"],
+        "ingredients": [
+            {
+                "inventoryId": "6420433ba43b42b48572e81f",
+                "requiredAmount": 75,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 200,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/2/21/Research_Table_icon.png"
+    },
+    {
+        "name": "Assault Rifle",
+        "categories": ["Weaponry", "Tools"],
+        "ingredients": [
+            {
+                "inventoryId": "64204813f0c24b52c73d9382",
+                "requiredAmount": 50,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "6418d5431621b32acd8c20fc",
+                "requiredAmount": 200,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "6420476af0c24b52c73d937a",
+                "requiredAmount": 1,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64204673f0c24b52c73d9377",
+                "requiredAmount": 4,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/d/d1/Assault_Rifle_icon.png"
+    },
+    {
+        "name": "Building Plan",
+        "categories": ["Tools", "Construction", "Essential"],
+        "ingredients": [
+            {
+                "inventoryId": "6418d5431621b32acd8c20fc",
+                "requiredAmount": 20,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/b/ba/Building_Plan_icon.png"
+    },
+    {
+        "name": "Semi-Automatic Rifle",
+        "categories": ["Weaponry", "Tools"],
+        "ingredients": [
+            {
+                "inventoryId": "64204813f0c24b52c73d9382",
+                "requiredAmount": 4,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 450,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "6420476af0c24b52c73d937a",
+                "requiredAmount": 1,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64204673f0c24b52c73d9377",
+                "requiredAmount": 4,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/8/8d/Semi-Automatic_Rifle_icon.png"
+    },
+    {
+        "name": "Metal Hatchet",
+        "categories": ["Tools", "Essential"],
+        "ingredients": [
+            {
+                "inventoryId": "6418d5431621b32acd8c20fc",
+                "requiredAmount": 100,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 75,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/0/06/Hatchet_icon.png"
+    },
+    {
+        "name": "Metal Pickaxe",
+        "categories": ["Tools", "Essential"],
+        "ingredients": [
+            {
+                "inventoryId": "6418d5431621b32acd8c20fc",
+                "requiredAmount": 100,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 125,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/8/86/Pick_Axe_icon.png"
+    },
+    {
+        "name": "Bandage",
+        "categories": ["Medicine", "Tools", "Essential"],
+        "ingredients": [
+            {
+                "inventoryId": "64205321f0c24b52c73d93a7",
+                "requiredAmount": 4,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/f/f8/Bandage_icon.png"
+    },
+    {
+        "name": "Medical Syringe",
+        "categories": ["Medicine", "Tools"],
+        "ingredients": [
+            {
+                "inventoryId": "64205321f0c24b52c73d93a7",
+                "requiredAmount": 15,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 10,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/9/99/Medical_Syringe_icon.png"
+    },
+    {
+        "name": "Auto Turret",
+        "categories": ["Weaponry", "Tools"],
+        "ingredients": [
+            {
+                "inventoryId": "64205208f0c24b52c73d939f",
+                "requiredAmount": 1,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64204beef0c24b52c73d939b",
+                "requiredAmount": 1,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64204813f0c24b52c73d9382",
+                "requiredAmount": 10,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/f/f9/Auto_Turret_icon.png"
+    },
+    {
+        "name": "Water Purifier",
+        "categories": ["Tools", "Essential"],
+        "ingredients": [
+            {
+                "inventoryId": "64204265a43b42b48572e819",
+                "requiredAmount": 1,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 15,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64205321f0c24b52c73d93a7",
+                "requiredAmount": 10,
+                "canCraft": false
+            }
+        ],
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/6/6e/Water_Purifier_icon.png/revision/latest?cb=20160512082941"
+    }
+]
