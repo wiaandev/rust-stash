@@ -54,7 +54,7 @@ export class StashComponent implements OnInit {
         } else {
           return this.stashService.getAllStash();
         }
-      })
+      })    
     ).subscribe((data) => {
       this.stash = data;
       console.log(data);

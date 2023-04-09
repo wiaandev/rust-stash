@@ -1,175 +1,179 @@
-@import '../../../styles.scss';
-.container{
+@import "../../../styles.scss";
+.container {
+  display: flex;
+
+  .left {
+    position: fixed;
+    left: 0;
     display: flex;
+    flex-flow: column;
+    width: 20%;
+    height: 100vh;
+    margin-right: 10px;
+    height: 100vh;
+  }
 
+  hr {
+    border: 1px solid $black;
+  }
 
-    .left{
-        position: fixed;
-        left: 0;
-        display: flex;
-        flex-flow: column;
-        width: 20%;
-        height: 100vh;
-        margin-right: 10px;
-        height: 100vh;
-    }
+  .right {
+    margin-left: 20%;
+    .right__header-group {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
 
-    hr{
+      .right__header-group__filter {
+        padding: 15px;
         border: 1px solid $black;
+        background-color: transparent;
+        outline: none;
+        width: 25%;
+        transition: 0.2s ease-in-out;
+        font-size: $headingp;
+
+        &:focus {
+          border: 1px solid $red;
+          color: $white;
+          background-color: $red;
+        }
+
+        &::placeholder {
+          opacity: 0.5;
+          font-family: "Manrope", sans-serif;
+          color: $black;
+          font-size: $headingp;
+        }
+      }
     }
 
-    .right{
-        margin-left: 20%;
-        .right__header-group{
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
+    .right__btn-group {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-evenly;
+      .location-filter {
+        background-color: $red;
+        width: 100%;
+        border: 0px;
+        color: $white;
+        padding: 20px;
+        margin-top: 30px;
+        font-size: $heading5;
+        text-align: center;
 
-            .right__header-group__filter{
-                padding: 15px;
-                border: 1px solid $black;
-                background-color: transparent;
-                outline: none;
-                width: 25%;
-                transition: 0.2s ease-in-out;
-                font-size: $headingp;
-
-                &:focus{
-                    border: 1px solid $red;
-                    color: $white;
-                    background-color: $red;
-                }
-
-                &::placeholder{
-                    opacity: 0.5;
-                    font-family: 'Manrope', sans-serif;
-                    color: $black;
-                    font-size: $headingp;
-                }
-            }
+        &:hover {
+          background-color: $green;
+          cursor: pointer;
         }
-
-        .right__btn-group{
-            margin-top: 35px;
-            display: flex;
-            justify-content: space-evenly;
-            .location-filter{
-                background-color: $red;
-                width: 100%;
-                border: 0px;
-                color: $white;
-                padding: 20px;
-                margin-top: 30px;
-                font-size: $heading5;
-                text-align: center;
-
-                &:hover{
-                    background-color: $green;
-                    cursor: pointer;
-                }
-            }
-            .location-filter-active{
-                background-color: $green;
-                width: 100%;
-                border: 0px;
-                color: $white;
-                padding: 20px;
-                margin-top: 30px;
-                font-size: $heading5;
-                text-align: center;
-            }
-        }
-
-        .divider-h{
-            width: 70%;
-            display: flex;
-            justify-content: center;
-            margin: 30px auto;
-            align-items: center;
-            text-align: center;
-
-        }
-
-        img{
-            width: 200px;
-        }
-
-        .right__inventory{
-            display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
-            grid-gap: 20px;
-
-            .right__inventory__card{
-                width: 100%;
-                display: flex;
-                flex-flow: column;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-
-                // &:hover > img{
-                //     opacity: 0.3;
-                // }
-
-                &:hover > p, &:hover > img, &:hover > .material-symbols-outlined{
-                    opacity: 0.3;
-                }
-
-                .test-block{
-                    text-align: center;
-                }
-
-                &:hover > .test-block{
-                    opacity: 0.3;
-                }
-
-                &:hover > .right__inventory__card__overlay_btn{
-                    opacity: 1;
-                }
-
-                .right__inventory__card__image{
-                    opacity: 1;
-                    display: block;
-                    width: 50%;
-                    height: auto;
-                    backface-visibility: hidden;
-                }
-
-                .right__inventory__card__overlay_btn{
-                    opacity: 0;
-                    position: absolute;
-                }
-
-                .right__inventory__card__qty{
-                    font-size: 24px;
-                }
-
-                .material-symbols-outlined{
-                    color: $red;
-                }
-
-                .div{
-                    display: flex;
-                    flex-flow: column;
-                    justify-content: center;
-                    align-items: center;
-                }
-            }
-        }
-
-        width: 80%;
-
-        .none-found{
-            background-color: $black;
-            color: $white;
-            padding: 10px;
-            margin: 0 auto;
-        }
-
-        .active-location{
-            background: $green;
-        }
+      }
+      .location-filter-active {
+        background-color: $green;
+        width: 100%;
+        border: 0px;
+        color: $white;
+        padding: 20px;
+        margin-top: 30px;
+        font-size: $heading5;
+        text-align: center;
+      }
     }
 
+    .divider-h {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      align-items: center;
+      text-align: center;
+    }
+
+    img {
+      width: 200px;
+    }
+
+    .right__inventory {
+      // display: grid;
+      // grid-template-columns: 25% 25% 25% 25%;
+      // grid-gap: 20px;
+
+      .right__inventory__card {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+        height: 100%;
+        // width: 100%;
+        // display: flex;
+        // flex-flow: column;
+        // justify-content: center;
+        // align-items: center;
+        // padding: 20px;
+
+        // &:hover > img{
+        //     opacity: 0.3;
+        // }
+
+        &:hover > p,
+        &:hover > img,
+        &:hover > .material-symbols-outlined {
+          opacity: 0.3;
+        }
+
+        .test-block {
+          text-align: center;
+        }
+
+        &:hover > .test-block {
+          opacity: 0.3;
+        }
+
+        &:hover > .right__inventory__card__overlay_btn {
+          opacity: 1;
+        }
+
+        .right__inventory__card__image {
+          opacity: 1;
+          display: block;
+          width: 50%;
+          height: auto;
+          backface-visibility: hidden;
+          height: 150px;
+          object-fit: contain;
+        }
+
+        .right__inventory__card__overlay_btn {
+          opacity: 0;
+          position: absolute;
+        }
+
+        .right__inventory__card__qty {
+          font-size: 24px;
+        }
+
+        .material-symbols-outlined {
+          color: $red;
+        }
+
+        // .div {
+        //   display: grid;
+        //   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        //   grid-gap: 10px;
+        // }
+      }
+    }
+
+    width: 80%;
+
+    .none-found {
+      background-color: $black;
+      color: $white;
+      padding: 10px;
+      margin: 0 auto;
+    }
+
+    .active-location {
+      background: $green;
+    }
+  }
 }
