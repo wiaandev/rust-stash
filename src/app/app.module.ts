@@ -18,6 +18,7 @@ import {LocationsComponent } from './pages/locations/locations.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthModalComponent } from './components/auth-modal/auth-modal.component';
+import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthModalComponent } from './components/auth-modal/auth-modal.component
     LocationsComponent,
     NotFoundComponent,
     AuthModalComponent,
+    SkeletonLoaderComponent,
   ],
   imports: [
     BrowserModule,

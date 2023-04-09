@@ -1,15 +1,26 @@
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
 import { Schema } from 'mongoose';
 
-export class Location {
+class InventoryDetails {
+  @prop({
+    _id: false,
+    type: () => Schema.Types.ObjectId, // added [] to define an array of ObjectIds
+  })
+  materialId: Schema.Types.ObjectId;
+
+  @prop()
+  qty: number;
+}
+
+class Location {
   @prop()
   public name!: string;
   @prop()
   public address!: string;
   @prop()
   public img!: string;
-  @prop({ _id: false, type: () => [Schema.Types.ObjectId] })
-  public locationItems!: Schema.Types.ObjectId[];
+  @prop({ _id: false, type: () => [InventoryDetails] })
+  public locationItems!: InventoryDetails[];
 }
 
 export const LocationModel = getModelForClass(Location);

@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+// body {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background: $white;
+//     min-height: 100vh;
+//   }
+  .container{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .cards {
+    display: flex;
+    background-color: $white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .card {
+    margin: 10px;
+    width: 100vw;
+    height: 34vh;
+    padding: 20px 30px 20px 20px;
+    background: $white;
+  
+    .image {
+      img {
+        padding: 20px;
+        max-width: 100%;
+      }
+    }
+  
+    .content {
+      padding: 30px 30px;
+    }
+  }
+  
+  .card.is-loading {
+    .image,
+    h2,
+    p {
+      background: $white;
+      background: linear-gradient(110deg, #EDD7C5 8%, $white 18%, #EDD7C5 33%);
+      background-size: 200% 100%;
+      animation: 1s shine linear infinite;
+    }
+  
+    .image {
+      height: 200px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    h2 {
+      height: 30px;
+    }
+  
+    p {
+      height: 70px;
+    }
+  }
+  
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+  

@@ -6,7 +6,7 @@
   <div class="right">
     <div class="right__header-group">
       <p>
-        <b>{{ stash.length }}</b> Total Stash Items
+        <b>{{ locationData.length }}</b> Total Stash Items
       </p>
       <h1>Stash</h1>
       <input
@@ -19,37 +19,77 @@
     </div>
     <div class="right__btn-group">
       <!-- TODO: Add filtering functionality -->
-      <app-button text="Wood Base" class="btn-primary"></app-button>
-      <app-button text="Stone Base" class="btn-primary"></app-button>
-      <app-button text="Metal Base" class="btn-primary"></app-button>
+      <!-- <h4
+        class="location-filter"
+        routerLink="/stash"
+        routerLinkActive="location-filter-active"
+      >
+        All Stash
+      </h4> -->
+      <h4
+        class="location-filter"
+        routerLinkActive="location-filter-active"
+        (click)="filterByLocation(locationData[0]._id)"
+        [ngClass]="locationData[0]._id === activeLocation ? 'location-filter-active' : ''"
+      >
+        Wood Base
+      </h4>
+      <h4
+        class="location-filter"
+        routerLinkActive="location-filter-active"
+        (click)="filterByLocation(locationData[1]._id)"
+        [ngClass]="locationData[1]._id === activeLocation ? 'location-filter-active' : ''"
+      >
+        Stone Base
+      </h4>
+      <h4
+        class="location-filter"
+        routerLinkActive="location-filter-active"
+        (click)="filterByLocation(locationData[2]._id)"
+        [ngClass]="locationData[2]._id === activeLocation ? 'location-filter-active' : ''"
+      >
+        Metal Base
+      </h4>
     </div>
     <hr class="divider-h" />
     <div class="right__inventory">
-      <div class="right__inventory__card" *ngFor="let item of stash">
-        <img class="right__inventory__card__image" src="{{ item.img }}" />
-        <p>{{ item.name }}</p>
-        <p class="right__inventory__card__qty"><b>{{item.qty}}</b></p>
-        <span class="material-symbols-outlined" *ngIf="item.qty < 40">Error</span>
-        <div class="right__inventory__card__overlay_btn">
+      <div
+        class="right__inventory__card"
+        *ngFor="let location of filteredData; let i = index"
+      >
+        <div class="div" *ngFor="let item of location.locationItems">
+          <img
+            class="right__inventory__card__image"
+            src="{{ item.materialId.img }}"
+          />
+          <p>{{ item.materialId.name }}</p>
+          <p class="right__inventory__card__qty">
+            <b>{{ item.qty }}</b>
+          </p>
+          <span class="material-symbols-outlined" *ngIf="item.qty < 29"
+            >Error</span
+          >
+          <div class="right__inventory__card__overlay_btn"></div>
           <app-button
             text="Update"
             class="btn-primary"
-            (click)="showComponent(item._id)"
+            (click)="showComponent(locationData[i]._id,item.materialId._id)"
           ></app-button>
         </div>
+        <div class="none-found" *ngIf="stash.length === 0">
+          <h4>! No Stash Items found !</h4>
+        </div>
+        <app-update-modal
+          *ngIf="display"
+          [qty]="locationMaterial.qty"
+          [name]="locationMaterial.materialId.name"
+          [desc]="locationMaterial.materialId.desc"
+          [img]="locationMaterial.materialId.img"
+          [categories]="locationMaterial.materialId.categories"
+          (btnClick)="hideComponent()"
+        ></app-update-modal>
       </div>
-      <div class="none-found" *ngIf="stash.length === 0">
-        <h4>! No Stash Items found !</h4>
-      </div>
-      <app-update-modal
-        *ngIf="display"
-        [name]="materialData['name']"
-        [desc]="materialData['desc']"
-        [img]="materialData['img']"
-        [qty]="materialData['qty']"
-        [categories]="materialData['categories']"
-        (btnClick)="hideComponent()"
-      ></app-update-modal>
     </div>
+    <h1 *ngIf="!filteredData" style="text-align: center;">Select a stash to open</h1>
   </div>
 </div>

@@ -8,11 +8,15 @@ import { MaterialModel } from 'src/shared/Materials.model';
 })
 export class UpdateModalComponent implements OnInit {
 
-  materialQty:number = 30;
+  loading:boolean = true
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    },1500)
+  }
 
   @Output() btnClick = new EventEmitter();
   @Input() name: string;
@@ -23,12 +27,19 @@ export class UpdateModalComponent implements OnInit {
 
   increaseQty(){
     this.qty++;
+    console.log(this.qty);
   }
 
   decreaseQty(){
-    if (this.materialQty > 1) {
+    if (this.qty > 1) {
       this.qty--;
+      console.log(this.qty)
     }
+  }
+
+  btnSave(){
+    this.btnClick.emit();
+    console.log(this.qty);
   }
 
 

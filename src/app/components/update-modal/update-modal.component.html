@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="modal">
+  <app-skeleton-loader *ngIf="loading"></app-skeleton-loader>
+  <div class="modal" *ngIf="!loading">
     <div class="left">
       <img src="{{ img }}" width="300px"/>
     </div>
@@ -12,7 +13,7 @@
       <br />
       <p>{{ desc }}</p>
       <div class="middle__flex">
-        <app-button text="Save" class="btn-primary"></app-button>
+        <app-button text="Save" class="btn-primary" (btnClick)="btnSave()"></app-button>
         <app-button
           text="Close"
           class="btn-secondary"

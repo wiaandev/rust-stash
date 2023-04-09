@@ -2,15 +2,16 @@
 .container{
     display: flex;
 
+
     .left{
         position: fixed;
         left: 0;
         display: flex;
         flex-flow: column;
         width: 20%;
+        height: 100vh;
         margin-right: 10px;
         height: 100vh;
-        border-right: 2px solid $black;
     }
 
     hr{
@@ -22,7 +23,7 @@
         .right__header-group{
             display: flex;
             width: 100%;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
 
             .right__header-group__filter{
@@ -53,6 +54,31 @@
             margin-top: 35px;
             display: flex;
             justify-content: space-evenly;
+            .location-filter{
+                background-color: $red;
+                width: 100%;
+                border: 0px;
+                color: $white;
+                padding: 20px;
+                margin-top: 30px;
+                font-size: $heading5;
+                text-align: center;
+
+                &:hover{
+                    background-color: $green;
+                    cursor: pointer;
+                }
+            }
+            .location-filter-active{
+                background-color: $green;
+                width: 100%;
+                border: 0px;
+                color: $white;
+                padding: 20px;
+                margin-top: 30px;
+                font-size: $heading5;
+                text-align: center;
+            }
         }
 
         .divider-h{
@@ -122,6 +148,13 @@
                 .material-symbols-outlined{
                     color: $red;
                 }
+
+                .div{
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
 
@@ -132,6 +165,10 @@
             color: $white;
             padding: 10px;
             margin: 0 auto;
+        }
+
+        .active-location{
+            background: $green;
         }
     }
 

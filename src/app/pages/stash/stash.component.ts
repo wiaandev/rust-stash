@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { StashService } from 'src/shared/services/stash.service';
 import { MaterialModel } from 'src/shared/Materials.model';
+import { LocationService } from 'src/shared/services/location.service';
 
 @Component({
   selector: 'app-stash',
@@ -11,22 +12,39 @@ import { MaterialModel } from 'src/shared/Materials.model';
 })
 export class StashComponent implements OnInit {
   id: string;
-  materialData: MaterialModel[];
+  materialData: any[];
   searchParam: string;
+  locationData: any[] = [];
+  locationItems: any[] = [];
+  locationMaterial: any;
+  filteredData:any[];
+  qty:number;
+  isClicked:boolean = false;
+  activeLocation: string;
 
   constructor(
     private stashService: StashService,
+    private locationService: LocationService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   stash: MaterialModel[];
+ 
 
   ngOnInit(): void {
-    // this.stashService.getAllStash().subscribe((data) => {
-    //   this.stash = data;
-    //   console.log(data);
-    // });
+    this.locationService.getAllLocations().subscribe(data => {
+      this.locationData = data;
+      console.log(this.locationData[0].locationItems[0].materialId.name);
+
+      // let items =this.locationData.map((i: any, index) =>{
+      //   return i.locationItems.map((j: any) =>{
+      //     return this.locationItems.push(j)
+      //   })
+      // });
+
+      // console.log(items)
+    })
 
     this.route.queryParams.pipe(
       switchMap((params: Params) => {
@@ -45,12 +63,33 @@ export class StashComponent implements OnInit {
 
   display = false;
 
-  showComponent(id: string) {
-    this.stashService.getOneItem(id).subscribe((data) => {
-      this.materialData = data;
-      console.log(this.materialData);
-      this.display = true;
+  showComponent(locationId:string, materialId: string) {
+
+    console.log(locationId)
+    console.log(materialId)
+    this.locationService.getMaterialFromLocation(locationId,materialId).subscribe((data) => {
+      console.log(data);
+      this.locationMaterial = data;
+      console.log(this.locationMaterial.qty)
+      // for(let item of this.locationMaterial){
+      //   this.qty = this.locationMaterial[item].qty;
+      //   console.log(this.qty);
+      // }
+      // console.log(this.materialData);
     });
+    this.display = true;
+  }
+
+  filterByLocation(locationId: string){
+    this.activeLocation = locationId;
+    this.locationService.getAllMaterialsFromLocation(locationId).subscribe((data) => {
+      console.log(data);
+      console.log(locationId);
+      this.filteredData = data;
+      console.log(this.filteredData)
+      // console.log(this.materialData);
+    });
+    this.isClicked = true;
   }
 
   showId(id: string) {
@@ -82,4 +121,20 @@ export class StashComponent implements OnInit {
     })
     console.log(this.stash);
   }
+
+  onFilter(id: string){
+    this.locationService.getOneLocation(id).subscribe(data => {
+      this.locationData = data;
+      console.log(this.locationData);
+      console.log("filter is running");
+    })
+  }
+
+  // onChangeLocation(category: string){
+  //   this.locationService.getOneLocation(category).subscribe((data)=>{
+  //       this.stash = lcaotionStash()
+  //   })
+  // }
+
+  // (click)="onChangeLocation("Armored Base")"
 }
