@@ -21,6 +21,7 @@ export class StashComponent implements OnInit {
   qty:number;
   isClicked:boolean = false;
   activeLocation: string;
+  activeMaterial: string;
 
   constructor(
     private stashService: StashService,
@@ -36,14 +37,6 @@ export class StashComponent implements OnInit {
     this.locationService.getAllLocations().subscribe(data => {
       this.locationData = data;
       console.log(this.locationData[0].locationItems[0].materialId.name);
-
-      // let items =this.locationData.map((i: any, index) =>{
-      //   return i.locationItems.map((j: any) =>{
-      //     return this.locationItems.push(j)
-      //   })
-      // });
-
-      // console.log(items)
     })
 
     this.route.queryParams.pipe(
@@ -64,10 +57,10 @@ export class StashComponent implements OnInit {
   display = false;
 
   showComponent(locationId:string, materialId: string) {
-
+    this.activeLocation = locationId;
     console.log(locationId)
-    console.log(materialId)
-    this.locationService.getMaterialFromLocation(locationId,materialId).subscribe((data) => {
+    this.activeMaterial= materialId;
+    this.locationService.getMaterialFromLocation(this.activeLocation,materialId).subscribe((data) => {
       console.log(data);
       this.locationMaterial = data;
       console.log(this.locationMaterial.qty)

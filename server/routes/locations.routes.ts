@@ -10,4 +10,5 @@ locationRouter.get('/locations', locationController.getLocations);
 locationRouter.get('/locations/:id', locationController.getLocation)
 locationRouter.get('/locations/single/:id', locationController.getAllItemsFromLocation);
 locationRouter.get('/locations/:id/materials/:materialId', locationController.getOneItemFromLocation);
+locationRouter.put('/locations/:locationId/materials/:materialId', locationController.updateQty);
 module.exports = locationRouter;

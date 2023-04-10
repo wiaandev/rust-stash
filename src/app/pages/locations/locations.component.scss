@@ -1,13 +1,63 @@
-.container{
-    .grid-3{
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        place-items: center;
+@import "../../../styles.scss";
+.container {
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    place-items: center;
+    padding: 20px;
+
+    .location-container {
+      opacity: 0.3;
+      transition: 0.3s ease-in-out;
     }
 
-    .grid-4{
-        display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        place-items: center;
+    .location-name {
+      font-weight: bold;
+      color: $white;
+      background-color: $red;
+      padding: 5px;
     }
+
+    .address {
+      font-weight: bold;
+      color: $white;
+      background-color: $black;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .location-filter-active {
+      opacity: 1;
+    }
+  }
+
+  .grid-4 {
+    .item-con {
+      & >h1 {
+        color: $white;
+      }
+      background-color: $black;
+      padding: 20px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  table {
+    text-align: center;
+    border-collapse: collapse;
+    th {
+      font-size: $heading4;
+      color: $white;
+    }
+    td {
+      border: 1px solid $white;
+      text-align: center;
+      color: $white;
+    }
+    width: 80vw;
+    padding: 10px;
+  }
 }

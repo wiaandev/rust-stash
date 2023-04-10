@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { LocationModel } from '../models/Location.model';
 import { MaterialModel } from '../models/Material.model';
-import { index } from '@typegoose/typegoose';
+const {ObjectId} = require('mongodb');
 
 class LocationController {
   async addLocation(req: Request, res: Response) {
@@ -169,11 +169,68 @@ class LocationController {
         },
         model: MaterialModel,
       });
-      console.log("found location! " + locationPop);
+      console.log('found location! ' + locationPop);
       return res.send([locationPop]);
     } catch (error) {
       console.log(error);
       return res.status(500).send({ error: error });
+    }
+  }
+
+  async updateQty(req: Request, res: Response) {
+    try {
+      const locationId = req.params.locationId;
+      const materialId = req.params.materialId;
+      const qty = req.body;
+
+      // console.log(locationId);
+      // console.log(materialId);
+      console.log(qty);
+
+      const location = await LocationModel.findById(locationId);
+      if (!location) {
+        console.log(`${locationId} not found`);
+        return res
+          .status(400)
+          .send(`Location with ID: ${locationId} could not be found`);
+      }
+
+      // console.log(location);
+
+      const material = location.locationItems.find(
+        (item) => item.materialId.toString() === materialId
+      );
+
+      if (!material) {
+        console.log(`${materialId} not found in ${locationId}`);
+        return res
+          .status(404)
+          .send(
+            `Material with ID: ${materialId} could not be found in ${locationId}`
+          );
+      }
+
+      const updatedQty = await LocationModel.updateOne(
+        {materialId: materialId},
+        {$set: {qty: qty}},
+      );
+
+      if (updatedQty.modifiedCount === 0) {
+        return res.status(404).send(`Could not update!`);
+      }
+      
+
+      // if(!updatedQty.acknowledged){
+      //   return res.status(400).send({msg: updatedQty.acknowledged});
+      // }
+
+      console.log(updatedQty);
+      console.log('Material Updated');
+
+      res.status(200).send(updatedQty);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send('Something went wrong');
     }
   }
 

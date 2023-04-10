@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from 'src/shared/services/location.service';
 
 @Component({
   selector: 'app-locations',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationsComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  materialData: any[];
+  searchParam: string;
+  locationData: any[] = [];
+  locationItems: any[] = [];
+  locationMaterial: any;
+  filteredData:any[];
+  qty:number;
+  isClicked:boolean = false;
+  activeLocation: string;
+  activeMaterial: string;
+
+  constructor(
+    private locationService: LocationService,
+  ) { }
 
   ngOnInit(): void {
+    this.locationService.getAllLocations().subscribe(data => {
+      this.locationData = data;
+      console.log(this.locationData[0].locationItems[0].materialId.categories);
+    })
   }
 
   selected = false;
@@ -20,6 +39,19 @@ export class LocationsComponent implements OnInit {
 
   onClose(){
     this.selected = false;
+  }
+
+
+  filterByLocation(locationId: string){
+    this.activeLocation = locationId;
+    this.locationService.getAllMaterialsFromLocation(locationId).subscribe((data) => {
+      console.log(data);
+      console.log(locationId);
+      this.filteredData = data;
+      console.log(this.filteredData)
+      // console.log(this.materialData);
+    });
+    this.isClicked = true;
   }
 
 }

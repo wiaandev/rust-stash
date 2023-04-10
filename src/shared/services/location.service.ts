@@ -28,4 +28,9 @@ export class LocationService{
     getAllMaterialsFromLocation(locationId: string){
         return this.http.get<LocationModel[]>(`${this.serverLink}/single/${locationId}`);
     }
+
+    updateQty(locationId: string,materialId: string, qty: number){
+        const updatedQty = {qty: qty}
+        return this.http.put<LocationModel[]>(`${this.serverLink}/${locationId}/materials/${materialId}`, updatedQty)
+    }    
 }

@@ -6,10 +6,10 @@ class InventoryDetails {
     _id: false,
     type: () => Schema.Types.ObjectId, // added [] to define an array of ObjectIds
   })
-  materialId: Schema.Types.ObjectId;
+  materialId!: Schema.Types.ObjectId;
 
   @prop()
-  qty: number;
+  qty!: number;
 }
 
 class Location {
@@ -21,6 +21,8 @@ class Location {
   public img!: string;
   @prop({ _id: false, type: () => [InventoryDetails] })
   public locationItems!: InventoryDetails[];
+  @prop({ type: () => Schema.Types.ObjectId }) 
+  public materialId!: Schema.Types.ObjectId;
 }
 
 export const LocationModel = getModelForClass(Location);

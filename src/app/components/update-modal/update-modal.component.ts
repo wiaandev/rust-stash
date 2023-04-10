@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MaterialModel } from 'src/shared/Materials.model';
+import { LocationService } from 'src/shared/services/location.service';
 
 @Component({
   selector: 'app-update-modal',
@@ -10,7 +11,7 @@ export class UpdateModalComponent implements OnInit {
 
   loading:boolean = true
 
-  constructor() {}
+  constructor(private locationService: LocationService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -24,6 +25,8 @@ export class UpdateModalComponent implements OnInit {
   @Input() desc: string;
   @Input() img: string;
   @Input() categories: string[];
+  @Input() locationId: string;
+  @Input() materialId: string;
 
   increaseQty(){
     this.qty++;
@@ -38,8 +41,13 @@ export class UpdateModalComponent implements OnInit {
   }
 
   btnSave(){
-    this.btnClick.emit();
+    // this.btnClick.emit();
     console.log(this.qty);
+    console.log(this.locationId)
+    console.log(this.materialId)
+    this.locationService.updateQty(this.locationId, this.materialId, this.qty).subscribe(data => {
+      console.log(data);
+    })
   }
 
 
