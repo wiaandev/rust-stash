@@ -5,7 +5,7 @@
   <h2>{{ name }}</h2>
   <div class="recipe-block">
     <!-- <div class="error-block"> -->
-      <div class="img-block" *ngFor="let item of ingredients; let i = index" [ngClass]="item.requiredAmount > material.qty ? 'low' : ''">
+      <div class="img-block" *ngFor="let item of ingredients; let i = index">
         <img src="{{ item.inventoryId.img }}" alt="" width="100px" />
         <p>{{ item.inventoryId.name }}</p>
         <h4>
