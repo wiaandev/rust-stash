@@ -33,7 +33,7 @@ class RecipeController {
       const filePath = path.resolve(__dirname, '../models/recipes.json');
       console.log('Absolute file path:', filePath);
 
-      const recipesJson = fs.readFileSync('../models/recipes.json', 'utf-8');
+      const recipesJson = fs.readFileSync('/Users/wiaanduvenhage/Desktop/Final Year/Term 1/Dev/rust-stash/server/models/recipes.json', 'utf-8');
       const data = JSON.parse(recipesJson);
 
       const recipe = await RecipeModel.insertMany(data);

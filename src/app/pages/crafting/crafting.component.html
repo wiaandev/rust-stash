@@ -10,13 +10,33 @@
 >
   <h1>Craft</h1>
   <br />
+  <div class="location-filter-block">
+    <p>Select your crafting location</p>
+    <br />
+    <div class="locations">
+
+      <h4
+        *ngFor="let location of locationData; let i = index"
+        class="location-filter"
+        routerLinkActive="location-filter-active"
+        (click)="filterByLocation(locationData[i]._id)"
+        [ngClass]="
+          locationData[i]._id === activeLocation ? 'location-filter-active' : ''
+        "
+      >
+        {{ location.name }}
+      </h4>
+    </div>
+  </div>
   <br />
-  <app-craft-block
-  *ngFor="let recipe of recipes"
-  [name]="recipe.name"
-  [img]="recipe.recipeImg"
-  [canCraft]="recipe.ingredients.canCraft"
-  [ingredients]="recipe.ingredients"
-></app-craft-block>
-  <br />
+  <div class="recipes" [ngClass]="!isClicked ? 'disabled' : ''">
+    <app-craft-block
+      *ngFor="let recipe of recipes"
+      [name]="recipe.name"
+      [img]="recipe.recipeImg"
+      [canCraft]="recipe.ingredients.canCraft"
+      [ingredients]="recipe.ingredients"
+      [materials]="filteredData"
+    ></app-craft-block>
+  </div>
 </div>

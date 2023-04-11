@@ -1,5 +1,44 @@
-.container{
+@import "../../../styles.scss";
+.container {
+    display: flex;
+    justify-content: center;
+
+  .location-filter-block {
+    // background-color: $black;
+    align-items: center;
+    color: $black;
+    padding: 10px;
+
+    .locations {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      .location-filter {
+        color: $white;
+        background-color: $red;
+        padding: 50px;
+        transition: 0.2s ease-in-out;
+        font-weight: bold;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $green;
+        }
+    }
+    .location-filter-active {
+      background-color: $green;
+    }
+}
+}
+.recipes{
+    transition: 0.3s ease-in;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 50px;
+}
+.disabled{
+    transition: 0.3s ease-in;
+    display: none;
+}
 }

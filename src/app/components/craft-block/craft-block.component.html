@@ -1,12 +1,12 @@
 <div class="outer">
 
 
-<div class="container" [ngClass]="!canCraft ? 'disabled' : 'container'">
+<div class="container">
   <h2>{{ name }}</h2>
   <div class="recipe-block">
     <!-- <div class="error-block"> -->
-      <div class="img-block" *ngFor="let item of ingredients; let i = index">
-        <img src="{{ item.inventoryId.img }}" alt="" width="100" />
+      <div class="img-block" *ngFor="let item of ingredients; let i = index" [ngClass]="item.requiredAmount > material.qty ? 'low' : ''">
+        <img src="{{ item.inventoryId.img }}" alt="" width="100px" />
         <p>{{ item.inventoryId.name }}</p>
         <h4>
           <b>{{ item.requiredAmount }}x</b>
@@ -21,11 +21,10 @@
   <app-button
     text="CRAFT"
     class="btn-craft"
-    [disabled]="!canCraft"
   ></app-button>
 </div>
 </div>
-<p class="craft-error" *ngIf="!canCraft">
+<p class="craft-error" *ngIf="canCraft">
   <span class="material-symbols-outlined">Error</span>You do not have one or
   more material(s) to craft this item
 </p>

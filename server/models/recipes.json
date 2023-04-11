@@ -2,6 +2,7 @@
     {
         "name": "Research Table",
         "categories": ["Crafting", "Tools"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "6420433ba43b42b48572e81f",
@@ -19,6 +20,7 @@
     {
         "name": "Assault Rifle",
         "categories": ["Weaponry", "Tools"],
+        "desc": "The Assault Rifle is a high powered automatic rifle. Together with the Bolt Action Rifle, it's a high-tier firearm capable of firing powerful rounds at long range, at the cost of high recoil and being a scarce find with expensive ingredients to craft it, almost more expensive than the Bolt Action Rifle. The assault rifle is a good close to medium range weapon; good for raids.",
         "ingredients": [
             {
                 "inventoryId": "64204813f0c24b52c73d9382",
@@ -44,20 +46,27 @@
         "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/d/d1/Assault_Rifle_icon.png"
     },
     {
-        "name": "Building Plan",
+        "name": "Metal Barricade",
         "categories": ["Tools", "Construction", "Essential"],
+        "desc": "This is a Metal Barricade similar to the Barbed Wooden Barricade but more durable. The Metal Barricade is the strongest of the 3 spiked barricades currently in the game but pretty cheap at 200 Metal Fragments a piece.",
         "ingredients": [
             {
-                "inventoryId": "6418d5431621b32acd8c20fc",
-                "requiredAmount": 20,
+                "inventoryId": "642042efa43b42b48572e81c",
+                "requiredAmount": 200,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "6420447da43b42b48572e824",
+                "requiredAmount": 2,
                 "canCraft": false
             }
         ],
-        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/b/ba/Building_Plan_icon.png"
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/b/bb/Metal_Barricade_icon.png"
     },
     {
         "name": "Semi-Automatic Rifle",
         "categories": ["Weaponry", "Tools"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "64204813f0c24b52c73d9382",
@@ -85,6 +94,7 @@
     {
         "name": "Metal Hatchet",
         "categories": ["Tools", "Essential"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "6418d5431621b32acd8c20fc",
@@ -102,6 +112,7 @@
     {
         "name": "Metal Pickaxe",
         "categories": ["Tools", "Essential"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "6418d5431621b32acd8c20fc",
@@ -117,20 +128,32 @@
         "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/8/86/Pick_Axe_icon.png"
     },
     {
-        "name": "Bandage",
-        "categories": ["Medicine", "Tools", "Essential"],
+        "name": "Heavy Plate Jacket",
+        "categories": ["Clothing", "Tools"],
+        "desc": "The Heavy Plate Jacket is an armor that boasts stats significantly better than the Metal Chest Plate, with the drawbacks being a 40% move speed penalty and the inability to wear any other chest or hand armor. In addition, the Heavy Plate Jacket prevents the wearer from using the sights of any weapon.",
         "ingredients": [
             {
-                "inventoryId": "64205321f0c24b52c73d93a7",
-                "requiredAmount": 4,
+                "inventoryId": "64204a10f0c24b52c73d938f",
+                "requiredAmount": 3,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "64204813f0c24b52c73d9382",
+                "requiredAmount": 8,
+                "canCraft": false
+            },
+            {
+                "inventoryId": "6420416fa43b42b48572e815",
+                "requiredAmount": 3,
                 "canCraft": false
             }
         ],
-        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/f/f8/Bandage_icon.png"
+        "recipeImg": "https://static.wikia.nocookie.net/play-rust/images/c/c7/Heavy_Plate_Jacket_icon.png"
     },
     {
         "name": "Medical Syringe",
         "categories": ["Medicine", "Tools"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "64205321f0c24b52c73d93a7",
@@ -148,6 +171,7 @@
     {
         "name": "Auto Turret",
         "categories": ["Weaponry", "Tools"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "64205208f0c24b52c73d939f",
@@ -170,6 +194,7 @@
     {
         "name": "Water Purifier",
         "categories": ["Tools", "Essential"],
+        "desc": "The Research Table is used to create Blueprints by using Scrap and the item to make the blueprint of, which means one has to find the desired item first.",
         "ingredients": [
             {
                 "inventoryId": "64204265a43b42b48572e819",
