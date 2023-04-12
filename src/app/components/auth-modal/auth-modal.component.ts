@@ -47,7 +47,6 @@ export class AuthModalComponent implements OnInit {
     return this.data;
   }
 
-  // TODO: Update the model to set their isAuth key to true
   onLogin(){
     let answer = this.answerForm.controls.answer.value;
     if(answer === this.data.auth[0].answer){

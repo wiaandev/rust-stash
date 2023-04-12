@@ -1,28 +1,13 @@
 <div class="container">
   <div class="left">
     <!-- TODO: Add more filters -->
-    <app-quick-filter></app-quick-filter>
+    <app-quick-filter [materials]="filteredData"></app-quick-filter>
   </div>
   <div class="right">
     <div class="right__header-group">
       <h1>Stash</h1>
-      <input
-        placeholder="Filter..."
-        class="right__header-group__filter"
-        type="text"
-        [(ngModel)]="searchParam"
-        (ngModelChange)="searchMaterials()"
-      />
     </div>
     <div class="right__btn-group">
-      <!-- TODO: Add filtering functionality -->
-      <!-- <h4
-        class="location-filter"
-        routerLink="/stash"
-        routerLinkActive="location-filter-active"
-      >
-        All Stash
-      </h4> -->
       <h4
         *ngFor="let location of locationData; let i = index"
         class="location-filter"

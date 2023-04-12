@@ -141,18 +141,7 @@ class LocationController {
       const locationId = req.params.id;
       console.log(locationId);
 
-      // const locationPop = await LocationModel.findById(locationId).populate({
-      //   path: 'locationItems.materialId',
-      //   populate: {
-      //     path: 'name',
-      //     select: 'name',
-      //   },
-      //   model: MaterialModel,
-      // });
-
       const location = await LocationModel.findById(locationId);
-
-      console.log(location);
 
       if (!location) {
         console.log('Cannot find location' + location);
@@ -215,7 +204,12 @@ class LocationController {
       const materialId = req.query.materialId;
       const currentAmount:number = req.body.currentAmount;
       const sendingAmount:number = req.body.sendingAmount;
+
+      if(locationId === newLocation){
+        return res.status(409).send({msg: 'You cannot send to the same location!'});
+      }
   
+      // console.log(sendingAmount);
       const currentLocation = await LocationModel.updateOne(
         {
           _id: locationId,
@@ -225,6 +219,7 @@ class LocationController {
           $set: { [`locationItems.$.qty`]: currentAmount - sendingAmount },
         }
       );
+
 
       if(!currentLocation){
         return res.status(404).send(`Cannot find ${currentLocation}`);
@@ -239,10 +234,6 @@ class LocationController {
           $set: { [`locationItems.$.qty`]: currentAmount + sendingAmount },
         }
       )
-
-      if(!sendingLocation){
-        return res.status(404).send(`Cannot find ${currentLocation}`);
-      }
 
       return res.status(200).send({currentLocation, sendingLocation});
     } catch (error) {

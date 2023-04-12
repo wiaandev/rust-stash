@@ -8,6 +8,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StashComponent } from './pages/stash/stash.component';
 import { AuthGuard } from '../shared/services/auth.guard.service';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   {path: "", component: LandingComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "signup", component: SignupComponent},
   {path: "crafting", component: CraftingComponent, canActivate: [AuthGuard]},
   {path: "locations", component: LocationsComponent, canActivate: [AuthGuard]},
+  {path: "about", component: AboutComponent},
   {path: "**", component: NotFoundComponent},
 
 ];

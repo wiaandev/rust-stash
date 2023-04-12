@@ -6,5 +6,6 @@ const recipeController = new RecipeController();
 
 recipeRouter.get('/recipes', recipeController.getAllRecipes);
 recipeRouter.post('/recipes', recipeController.addRecipe);
+recipeRouter.get('/recipes/location/:locationId/single/:recipeId', recipeController.compareMaterials);
 
 module.exports = recipeRouter;

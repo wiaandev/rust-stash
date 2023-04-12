@@ -52,6 +52,9 @@
           (btnClick)="onTransferToMetal()"
         ></app-button>
       </div>
+      <br>
+      
+      <p class="error">{{errorMessage}}</p>
     </div>
     <div class="right">
       <h4>Update Quantity</h4>
@@ -69,6 +72,7 @@
           class="btn-primary"
           (click)="increaseQty()"
         ></app-button>
+        <app-loader></app-loader>
       </div>
     </div>
   </div>

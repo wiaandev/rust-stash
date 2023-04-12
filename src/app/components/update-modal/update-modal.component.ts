@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MaterialModel } from 'src/shared/Materials.model';
+import { updateData } from 'src/shared/UpdateData.interface';
 import { LocationService } from 'src/shared/services/location.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class UpdateModalComponent implements OnInit {
   amountWood: number;
   amountStone: number;
   amountMetal: number;
+  errorMessage: string;
 
   constructor(private locationService: LocationService) {}
 
@@ -62,25 +64,45 @@ export class UpdateModalComponent implements OnInit {
   onTransferToWood(newLocation: string) {
     console.log('Sending to Wood');
     newLocation = '6432a45326d82cdf5b58c42a';
+    let transferData : updateData = {
+      sendingAmount: this.amountWood,
+      currentAmount: this.qty
+    }
     // console.log(this.qty - this.amount);
-    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountWood).subscribe(data => {
+    console.log(this.amountWood)
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, transferData ).subscribe(data => {
       console.log(data);
+    }, error => {
+      this.errorMessage = error;
     })
   }
 
   onTransferToStone(newLocation: string) {
     console.log('Sending to Stone');
     newLocation = '6432a47a26d82cdf5b58c42d';
-    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountStone).subscribe(data => {
+    let transferData : updateData = {
+      sendingAmount: this.amountStone,
+      currentAmount: this.qty
+    }
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, transferData).subscribe(data => {
       console.log(data);
+    }, error => {
+      this.errorMessage = error;
     })
   }
   
   onTransferToMetal(newLocation: string) {
     console.log('Sending to Metal');
     newLocation = '6432a49326d82cdf5b58c430';
-    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountMetal).subscribe(data => {
+    console.log(this.amountMetal)
+    let transferData : updateData = {
+      sendingAmount: this.amountMetal,
+      currentAmount: this.qty
+    }
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, transferData).subscribe(data => {
       console.log(data);
+    }, error => {
+      this.errorMessage = error;
     })
   }
 }

@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { LocationModel } from "../Location.model";
-import { Observable } from "rxjs";
+import { Observable, throwError } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class LocationService{
@@ -34,14 +35,26 @@ export class LocationService{
         return this.http.put<LocationModel[]>(`${this.serverLink}/${locationId}?materialId=${materialId}`, updatedQty)
     } 
     
-    transferInventory(currentLocation: string, newLocation: string, materialId: string, qty: number){
-        const sentAmount = {qty: qty}
-        return this.http.put<LocationModel[]>(`${this.serverLink}/${currentLocation}/to/${newLocation}?materialId=${materialId}`, sentAmount)
+    transferInventory(currentLocation: string, newLocation: string, materialId: string, body: {}){
+        return this.http.put<LocationModel[]>(`${this.serverLink}/${currentLocation}/to/${newLocation}?materialId=${materialId}`, body).pipe(
+            catchError(this.handleError)
+        );
     }
 
     getMaterialsBySearch(search: string): Observable<LocationModel[]> {
         return this.http.get<LocationModel[]>(
           `${this.serverLink}?search=${search}`
-        );
-      }
+        )
+    }
+
+
+    private handleError(error: HttpErrorResponse): Observable<string>{
+        let errorMessage = 'An error occured';
+        if(error.error instanceof ErrorEvent){
+            errorMessage = `Error: ${error.error.message}`
+        }else {
+            errorMessage = `${error.error.msg}`
+        }
+        return throwError(errorMessage)
+    }
 }

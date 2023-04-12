@@ -71,7 +71,7 @@ class UserController {
       if (!user) {
         return res
           .status(404)
-          .json({ msg: `user with ${email} was not found.` });
+          .json({ msg: `This email was not found` });
       }
       return res.status(200).json({ auth: user.auth[0] });
     } catch (error) {

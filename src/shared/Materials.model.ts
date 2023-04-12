@@ -1,9 +1,9 @@
 export class MaterialModel {
-  public name: string;
-  public desc: string;
-  public categories: string[];
-  public img: string;
-  public isCraftable: string;
+  public name!: string;
+  public desc!: string;
+  public categories!: string[];
+  public img!: string;
+  public isCraftable!: string;
 
   constructor(
     name: string,

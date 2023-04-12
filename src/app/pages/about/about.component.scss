@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+
+.container {
+  .red-block {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $black;
+    width: 95vw;
+    padding: 20px;
+    height: 50vh;
+
+    .right {
+      color: $white;
+      display: flex;
+      // gap: 20px;
+      flex-flow: column;
+      justify-content: center;
+
+      & > p {
+        text-align: center;
+      }
+    }
+  }
+
+  .white-block {
+    background-color: $red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 10px;
+
+    .right{
+        padding: 20px;
+        width: 50%;
+        background-color: $black;
+        color: $white;
+    }
+  }
+}

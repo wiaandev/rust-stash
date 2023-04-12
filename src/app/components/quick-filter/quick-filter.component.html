@@ -4,10 +4,11 @@
 <div class="container">
     <h4 style="font-weight: bold;">Quick Filter</h4>
     <br>
-    <h4 class="filter-item active">Show All</h4>
-    <h4 class="filter-item">Tools</h4>
-    <h4 class="filter-item">Materials</h4>
-    <h4 class="filter-item">Weaponry</h4>
-    <h4 class="filter-item">Construction</h4>
-    <h4 class="filter-item">Medicine</h4>
+    <h4 class="filter-item active" (click)="getAllMaterials()">Show All</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Tools')">Tools</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Resource')">Resource</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Weaponry')">Weaponry</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Crafting')">Crafting</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Construction')">Construction</h4>
+    <h4 class="filter-item" (click)="filterByCategory('Medicine')">Medicine</h4>
 </div>

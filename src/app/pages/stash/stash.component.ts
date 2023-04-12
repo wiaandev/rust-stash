@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { StashService } from 'src/shared/services/stash.service';
-import { MaterialModel } from 'src/shared/Materials.model';
 import { LocationService } from 'src/shared/services/location.service';
+import { LocationModel } from 'src/shared/Location.model';
 
 @Component({
   selector: 'app-stash',
@@ -22,6 +22,7 @@ export class StashComponent implements OnInit {
   isClicked:boolean = false;
   activeLocation: string;
   activeMaterial: string;
+  textFiltered: LocationModel[];
 
   constructor(
     private stashService: StashService,
@@ -29,8 +30,6 @@ export class StashComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  stash: MaterialModel[];
  
 
   ngOnInit(): void {
@@ -95,33 +94,43 @@ export class StashComponent implements OnInit {
     // this.hideComponent();
   }
 
-  searchMaterials() {
+  // searchMaterials() {
 
-    if (this.searchParam === '') {
-      this.locationService.getAllMaterialsFromLocation(this.activeLocation).subscribe((data) => {
-        this.filteredData = data[0]['locationItems'];
-      });
-    } else {
-      // Filter the stash array based on the searchParam
-      this.filteredData = this.filteredData.filter((item) => {
-        return item.locationItems['materialId'].name.toLowerCase().includes(this.searchParam.toLowerCase());
-      });
+  //   if (this.searchParam === '') {
+  //     this.locationService.getAllMaterialsFromLocation(this.activeLocation).subscribe((data) => {
+  //       // this.filteredData = data;
+  //       this.textFiltered = data;
+  //       console.log(this.textFiltered);
+  //       // console.log(this.filteredData[0].locationItems.name);
+  //     });
+  //   } else {
+  //     // Filter the stash array based on the searchParam
+  //     this.textFiltered = this.textFiltered.filter((item) => {
+  //       console.log(this.textFiltered);
+  //       return item.locationItems[0].materialId[0].name.toLowerCase().includes(this.searchParam.toLowerCase());
+  //       const locationItems = item.locationItems;
+  //       // const materialId = locationItems?.materialId;
+  //       // const materialName = materialId?.name;
+    
+  //       console.log('Location items:', locationItems);
+  //       // console.log('Material ID:', materialId);
+  //       // console.log('Material name:', materialName);
+    
+  //       // return materialName?.toLowerCase().includes(this.searchParam.toLowerCase());
+      
+  //     });
 
-      let test = this.filteredData.filter((item: any) =>{
-        item.materialId.toLowerCase.includes(this.searchParam.toLowerCase())
-      })
-
-      console.log(test)
-    }
-    // this.stash = this.stash.filter(item => item.name.toLowerCase().includes(this.searchParam.toLowerCase()));
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {search: this.searchParam},
-      queryParamsHandling: 'preserve',
-      skipLocationChange: true
-    })
-    console.log(this.filteredData[0].locationItems);
-  }
+  //     console.log(this.filteredData);
+  //   }
+  //   // this.stash = this.stash.filter(item => item.name.toLowerCase().includes(this.searchParam.toLowerCase()));
+  //   this.router.navigate([], {
+  //     relativeTo: this.route,
+  //     queryParams: {search: this.searchParam},
+  //     queryParamsHandling: 'preserve',
+  //     skipLocationChange: true
+  //   })
+  //   console.log(this.textFiltered);
+  // }
 
   onFilter(id: string){
     this.locationService.getOneLocation(id).subscribe(data => {

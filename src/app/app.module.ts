@@ -19,6 +19,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthModalComponent } from './components/auth-modal/auth-modal.component';
 import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-l
     NotFoundComponent,
     AuthModalComponent,
     SkeletonLoaderComponent,
+    LoaderComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

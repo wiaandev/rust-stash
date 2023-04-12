@@ -3,6 +3,7 @@ import { RecipeModel } from '../models/Recipe.model';
 import * as fs from 'fs';
 import path from 'path';
 import { MaterialModel } from '../models/Material.model';
+import { LocationModel } from '../models/Location.model';
 
 class RecipeController {
   async getAllRecipes(req: Request, res: Response) {
@@ -54,6 +55,68 @@ class RecipeController {
     } catch (err) {
       console.log(err);
       res.status(500).send({ error: err });
+    }
+  }
+
+  async compareMaterials(req: Request, res: Response){
+    try {
+      // find the location that is filtered and returns its materials
+      const locationId = req.params.locationId;
+      const recipeId = req.params.recipeId;
+      console.log(locationId);
+
+      const location = await LocationModel.findById(locationId);
+
+      if (!location) {
+        console.log('Cannot find location' + location);
+        return res
+          .status(404)
+          .send(`Could not find location with ID ${locationId}`);
+      }
+
+      const locationPop = await LocationModel.findById(locationId).populate({
+        path: 'locationItems.materialId',
+        populate: {
+          path: 'name',
+          select: 'name',
+        },
+        model: MaterialModel,
+      });
+
+      const recipes = await RecipeModel.findById(recipeId);
+
+      if(!recipes){
+        console.log('Cannot find recipe: ' + recipes);
+        return res.status(404).send(404).send(`Could not find recipe with ID ${recipeId}`);
+      }
+
+      console.log(recipes);
+
+      let canCraft = false;
+
+      for(const ingredient of recipes.ingredients){
+        const material = locationPop?.locationItems.find(item => {
+          return item.materialId === ingredient.inventoryId;
+        })
+        console.log(material);
+        if(!material || material.qty < ingredient.requiredAmount){
+          canCraft = false;
+          break;
+        }else{
+          canCraft = true;
+        }
+      }
+
+      if(canCraft){
+        res.send(`You can craft ${recipes.name}`)
+      } else {
+        res.send(`You cannot craft ${recipes.name}`)
+      }
+
+      return res.send(recipes);
+
+    } catch (error) {
+      console.log(error);
     }
   }
 
