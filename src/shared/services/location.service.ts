@@ -29,8 +29,19 @@ export class LocationService{
         return this.http.get<LocationModel[]>(`${this.serverLink}/single/${locationId}`);
     }
 
-    updateQty(locationId: string,materialId: string, qty: number){
+    updateQty(locationId: string, materialId: string, qty: number){
         const updatedQty = {qty: qty}
-        return this.http.put<LocationModel[]>(`${this.serverLink}/${locationId}/materials/${materialId}`, updatedQty)
-    }    
+        return this.http.put<LocationModel[]>(`${this.serverLink}/${locationId}?materialId=${materialId}`, updatedQty)
+    } 
+    
+    transferInventory(currentLocation: string, newLocation: string, materialId: string, qty: number){
+        const sentAmount = {qty: qty}
+        return this.http.put<LocationModel[]>(`${this.serverLink}/${currentLocation}/to/${newLocation}?materialId=${materialId}`, sentAmount)
+    }
+
+    getMaterialsBySearch(search: string): Observable<LocationModel[]> {
+        return this.http.get<LocationModel[]>(
+          `${this.serverLink}?search=${search}`
+        );
+      }
 }

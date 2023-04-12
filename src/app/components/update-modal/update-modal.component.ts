@@ -8,15 +8,17 @@ import { LocationService } from 'src/shared/services/location.service';
   styleUrls: ['./update-modal.component.scss'],
 })
 export class UpdateModalComponent implements OnInit {
-
-  loading:boolean = true
+  loading: boolean = true;
+  amountWood: number;
+  amountStone: number;
+  amountMetal: number;
 
   constructor(private locationService: LocationService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-    },1500)
+    }, 1500);
   }
 
   @Output() btnClick = new EventEmitter();
@@ -28,30 +30,57 @@ export class UpdateModalComponent implements OnInit {
   @Input() locationId: string;
   @Input() materialId: string;
 
-  increaseQty(){
+  increaseQty() {
     this.qty++;
     console.log(this.qty);
   }
 
-  decreaseQty(){
+  decreaseQty() {
     if (this.qty > 1) {
       this.qty--;
-      console.log(this.qty)
+      console.log(this.qty);
     }
   }
 
-  btnSave(){
+  btnSave() {
     // this.btnClick.emit();
     console.log(this.qty);
-    console.log(this.locationId)
-    console.log(this.materialId)
-    this.locationService.updateQty(this.locationId, this.materialId, this.qty).subscribe(data => {
+    console.log(this.locationId);
+    console.log(this.materialId);
+    this.locationService
+      .updateQty(this.locationId, this.materialId, this.qty)
+      .subscribe((data) => {
+        console.log(data);
+      });
+    window.location.reload();
+  }
+
+  btnClose() {
+    this.btnClick.emit();
+  }
+
+  onTransferToWood(newLocation: string) {
+    console.log('Sending to Wood');
+    newLocation = '6432a45326d82cdf5b58c42a';
+    // console.log(this.qty - this.amount);
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountWood).subscribe(data => {
       console.log(data);
     })
   }
 
-
-  btnClose() {
-    this.btnClick.emit();
+  onTransferToStone(newLocation: string) {
+    console.log('Sending to Stone');
+    newLocation = '6432a47a26d82cdf5b58c42d';
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountStone).subscribe(data => {
+      console.log(data);
+    })
+  }
+  
+  onTransferToMetal(newLocation: string) {
+    console.log('Sending to Metal');
+    newLocation = '6432a49326d82cdf5b58c430';
+    this.locationService.transferInventory(this.locationId, newLocation, this.materialId, this.amountMetal).subscribe(data => {
+      console.log(data);
+    })
   }
 }

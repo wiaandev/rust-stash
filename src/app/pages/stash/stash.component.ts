@@ -38,20 +38,6 @@ export class StashComponent implements OnInit {
       this.locationData = data;
       console.log(this.locationData[0].locationItems[0].materialId.name);
     })
-
-    this.route.queryParams.pipe(
-      switchMap((params: Params) => {
-        if (params.search) {
-          console.log(params.search);
-          return this.stashService.getStashBySearch(params.search);
-        } else {
-          return this.stashService.getAllStash();
-        }
-      })    
-    ).subscribe((data) => {
-      this.stash = data;
-      console.log(data);
-    });
   }
 
   display = false;
@@ -83,6 +69,21 @@ export class StashComponent implements OnInit {
       // console.log(this.materialData);
     });
     this.isClicked = true;
+
+
+    this.route.queryParams.pipe(
+      switchMap((params: Params) => {
+        if (params.search) {
+          console.log(params.search);
+          return this.locationService.getMaterialsBySearch(params.search);
+        } else {
+          return this.locationService.getAllMaterialsFromLocation(locationId);
+        }
+      })    
+    ).subscribe((data) => {
+      this.filteredData = data;
+      console.log(data[0].locationItems);
+    });
   }
 
   showId(id: string) {
@@ -94,16 +95,23 @@ export class StashComponent implements OnInit {
     // this.hideComponent();
   }
 
-  searchStash() {
+  searchMaterials() {
+
     if (this.searchParam === '') {
-      this.stashService.getAllStash().subscribe((data) => {
-        this.stash = data;
+      this.locationService.getAllMaterialsFromLocation(this.activeLocation).subscribe((data) => {
+        this.filteredData = data[0]['locationItems'];
       });
     } else {
       // Filter the stash array based on the searchParam
-      this.stash = this.stash.filter((item) => {
-        return item.name.toLowerCase().includes(this.searchParam.toLowerCase());
+      this.filteredData = this.filteredData.filter((item) => {
+        return item.locationItems['materialId'].name.toLowerCase().includes(this.searchParam.toLowerCase());
       });
+
+      let test = this.filteredData.filter((item: any) =>{
+        item.materialId.toLowerCase.includes(this.searchParam.toLowerCase())
+      })
+
+      console.log(test)
     }
     // this.stash = this.stash.filter(item => item.name.toLowerCase().includes(this.searchParam.toLowerCase()));
     this.router.navigate([], {
@@ -112,7 +120,7 @@ export class StashComponent implements OnInit {
       queryParamsHandling: 'preserve',
       skipLocationChange: true
     })
-    console.log(this.stash);
+    console.log(this.filteredData[0].locationItems);
   }
 
   onFilter(id: string){

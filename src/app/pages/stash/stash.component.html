@@ -11,7 +11,7 @@
         class="right__header-group__filter"
         type="text"
         [(ngModel)]="searchParam"
-        (ngModelChange)="searchStash()"
+        (ngModelChange)="searchMaterials()"
       />
     </div>
     <div class="right__btn-group">
@@ -23,13 +23,16 @@
       >
         All Stash
       </h4> -->
-      <h4 *ngFor="let location of locationData; let i = index"
+      <h4
+        *ngFor="let location of locationData; let i = index"
         class="location-filter"
         routerLinkActive="location-filter-active"
         (click)="filterByLocation(locationData[i]._id)"
-        [ngClass]="locationData[i]._id === activeLocation ? 'location-filter-active' : ''"
+        [ngClass]="
+          locationData[i]._id === activeLocation ? 'location-filter-active' : ''
+        "
       >
-        {{location.name}}
+        {{ location.name }}
       </h4>
     </div>
     <hr class="divider-h" />
@@ -44,20 +47,20 @@
             src="{{ item.materialId.img }}"
           />
           <p>{{ item.materialId.name }}</p>
-          <p class="right__inventory__card__qty">
+          <p class="right__inventory__card__qty" [ngClass]="item.qty < 30 ? 'lowQty' : ''">
             <b>{{ item.qty }}</b>
+            <span class="material-symbols-outlined" *ngIf="item.qty < 30"
+              >Error</span
+            >
           </p>
-          <span class="material-symbols-outlined" *ngIf="item.qty < 30"
-            >Error</span
-          >
           <div class="right__inventory__card__overlay_btn"></div>
           <app-button
             text="Update"
             class="btn-primary"
-            (click)="showComponent(location._id,item.materialId._id)"
+            (click)="showComponent(location._id, item.materialId._id)"
           ></app-button>
         </div>
-        <div class="none-found" *ngIf="stash.length === 0">
+        <div class="none-found" *ngIf="filteredData.length === 0">
           <h4>! No Stash Items found !</h4>
         </div>
         <app-update-modal
@@ -73,6 +76,13 @@
         ></app-update-modal>
       </div>
     </div>
-    <h1 *ngIf="!filteredData" style="text-align: center;">Select a stash to open</h1>
+    <div class="select-prompt" *ngIf="!filteredData">
+      <h1 style="text-align: center">
+        Select a Stash
+      </h1>
+      <h4 style="text-align: center">
+        Click on one of the locations above
+      </h4>
+    </div>
   </div>
 </div>

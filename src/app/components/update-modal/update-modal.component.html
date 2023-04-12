@@ -2,31 +2,73 @@
   <app-skeleton-loader *ngIf="loading"></app-skeleton-loader>
   <div class="modal" *ngIf="!loading">
     <div class="left">
-      <img src="{{ img }}" width="300px"/>
+      <img src="{{ img }}" width="300px" />
     </div>
     <div class="middle">
       <h1>{{ name }}</h1>
       <br />
       <div class="middle__flex" *ngFor="let item of categories; let i = index">
-        <p class="middle__category">{{item}}</p>
+        <p class="middle__category">{{ item }}</p>
       </div>
       <br />
       <p>{{ desc }}</p>
       <div class="middle__flex">
-        <app-button text="Save" class="btn-primary" (btnClick)="btnSave()"></app-button>
+        <app-button
+          text="Save"
+          class="btn-primary"
+          (btnClick)="btnSave()"
+        ></app-button>
         <app-button
           text="Close"
           class="btn-secondary"
           (btnClick)="btnClose()"
         ></app-button>
       </div>
+      <br />
+      <br />
+      <h4>Transfer Inventory</h4>
+      <br />
+      <div class="transfer-section">
+        <label for="woodBase">Wood Base</label>
+        <input type="number" id="woodBase" [(ngModel)]="amountWood"/>
+        <app-button
+          text="Send"
+          class="btn-secondary"
+          (btnClick)="onTransferToWood()"
+          type="submit"
+        ></app-button>
+        <label for="stoneBase">Stone Base</label>
+        <input type="number" [(ngModel)]="amountStone"/>
+        <app-button
+          text="Send"
+          class="btn-secondary"
+          (btnClick)="onTransferToStone()"
+        ></app-button>
+        <label for="metalBase">Metal Base</label>
+        <input type="number" [(ngModel)]="amountMetal"/>
+        <app-button
+          text="Send"
+          class="btn-secondary"
+          (btnClick)="onTransferToMetal()"
+        ></app-button>
+      </div>
     </div>
     <div class="right">
       <h4>Update Quantity</h4>
       <div class="right__flex">
-        <app-button text="-" class="btn-primary" (click)="decreaseQty()"></app-button>
-        <h4><b>{{qty}}</b></h4>
-        <app-button text="+" class="btn-primary" (click)="increaseQty()"></app-button>
+        <app-button
+          text="-"
+          class="btn-primary"
+          (click)="decreaseQty()"
+        ></app-button>
+        <h4>
+          <b>{{ qty }}</b>
+        </h4>
+        <app-button
+          text="+"
+          class="btn-primary"
+          (click)="increaseQty()"
+        ></app-button>
       </div>
     </div>
   </div>

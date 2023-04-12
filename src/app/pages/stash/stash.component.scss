@@ -23,6 +23,7 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
+      gap: 20px;
       align-items: center;
 
       .right__header-group__filter {
@@ -149,10 +150,20 @@
 
         .right__inventory__card__qty {
           font-size: 24px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+        }
+        .lowQty{
+          color: $red;
         }
 
         .material-symbols-outlined {
           color: $red;
+          // position: absolute;
+          // right: 0;
+          // top: 0;
         }
 
         // .div {
@@ -175,5 +186,17 @@
     .active-location {
       background: $green;
     }
+  }
+  .select-prompt{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: $white;
+    width: 100%;
+    flex-flow: column;
+    justify-content: center;
+    gap: 10px;
+    background-color: $black;
+
   }
 }

@@ -38,6 +38,23 @@
         background-color: black;
         width: fit-content;
       }
+
+      .transfer-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        & > input{
+          padding: 10px;
+          width: 100px;
+          border: none;
+          border: 1px solid $black;
+          outline: none;
+          font-size: $heading4;
+          background-color: transparent;
+        }
+      }
     }
 
     .right {
