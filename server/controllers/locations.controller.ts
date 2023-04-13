@@ -18,7 +18,7 @@ class LocationController {
         name,
         address,
         img,
-        locationItems: materials.map((item) => ({
+        locationItems: materials.map((item: any) => ({
           materialId: item._id,
           qty: item.qty,
         })),
@@ -89,7 +89,7 @@ class LocationController {
       }
 
       const materialIndex = location.locationItems.findIndex(
-        (item) => item.materialId.toString() === materialId
+        (item: any) => item.materialId.toString() === materialId
       );
 
       if (materialIndex === -1) {
