@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cdRef: ChangeDetectorRef) { }
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 
   ngOnInit(): void {
-    if(sessionStorage.getItem === null){
-      this.isLoggedIn = false
+    const isLoggedInInSessionStorage = sessionStorage.getItem("user");
+
+    if (isLoggedInInSessionStorage !== null && isLoggedInInSessionStorage !== "" && isLoggedInInSessionStorage !== undefined) {
+      this.isLoggedIn = true;
     }
+
+    this.cdRef.detectChanges();
   }
 
   onLogout(){

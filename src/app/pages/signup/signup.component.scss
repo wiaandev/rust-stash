@@ -87,5 +87,14 @@
             display: flex;
             align-items: center;
         }
+
+        .cancel{
+            text-decoration: underline;
+            text-align: center;
+
+            &:hover{
+                color: $white;
+            }
+        }
     }
 }
