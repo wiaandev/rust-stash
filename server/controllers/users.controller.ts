@@ -4,9 +4,7 @@ import { UserModel } from '../models/User.model';
 
 class UserController {
   async getAllUsers(req: Request, res: Response) {
-    console.log('running');
     const users = await UserModel.find({});
-    console.log('users is running');
     return res.json(users);
   }
 
@@ -19,7 +17,6 @@ class UserController {
       isAuth,
     });
 
-    // console.log(user.userMaterials);
     res.send(user);
   }
 
@@ -29,7 +26,6 @@ class UserController {
       const user = await UserModel.findOne({ email });
 
       if (user) {
-        console.log(user);
         res.send(user);
       } else {
         res.status(409).json({ msg: 'user not found' });
@@ -40,29 +36,6 @@ class UserController {
   }
 
   async loginUser(req: Request, res: Response) {
-    //   try {
-    //     const { email, question, answer } = req.body;
-
-    //     const user = await UserModel.findOne({ email: email });
-
-    //     if (!user) {
-    //       console.log('user found');
-    //       return res.status(409).json({ msg: 'user not found' });
-    //     }
-
-    //     if (
-    //       question === user!.auth[0].question! &&
-    //       answer === user!.auth[0].answer!
-    //     ) {
-    //       user!.isAuth = true;
-    //       return res.status(200).json({ success: true });
-    //     } else {
-    //       res.status(409).json({ msg: 'question and answers error' });
-    //     }
-    //   } catch (err) {
-    //     res.status(409).json({ msg: err });
-    //   }
-    // }
 
     try {
       const { email, question, answer } = req.body;

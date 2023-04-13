@@ -35,7 +35,6 @@ export class StashComponent implements OnInit {
   ngOnInit(): void {
     this.locationService.getAllLocations().subscribe(data => {
       this.locationData = data;
-      console.log(this.locationData[0].locationItems[0].materialId.name);
     })
   }
 
@@ -43,12 +42,9 @@ export class StashComponent implements OnInit {
 
   showComponent(locationId:string, materialId: string) {
     this.activeLocation = locationId;
-    console.log(locationId)
     this.activeMaterial= materialId;
     this.locationService.getMaterialFromLocation(this.activeLocation,materialId).subscribe((data) => {
-      console.log(data);
       this.locationMaterial = data;
-      console.log(this.locationMaterial.qty)
     });
     this.display = true;
   }
@@ -56,10 +52,7 @@ export class StashComponent implements OnInit {
   filterByLocation(locationId: string){
     this.activeLocation = locationId;
     this.locationService.getAllMaterialsFromLocation(locationId).subscribe((data) => {
-      console.log(data);
-      console.log(locationId);
       this.filteredData = data;
-      console.log(this.filteredData)
     });
     this.isClicked = true;
 
@@ -67,7 +60,6 @@ export class StashComponent implements OnInit {
     this.route.queryParams.pipe(
       switchMap((params: Params) => {
         if (params.search) {
-          console.log(params.search);
           return this.locationService.getMaterialsBySearch(params.search);
         } else {
           return this.locationService.getAllMaterialsFromLocation(locationId);
@@ -75,12 +67,10 @@ export class StashComponent implements OnInit {
       })    
     ).subscribe((data) => {
       this.filteredData = data;
-      console.log(data[0].locationItems);
     });
   }
 
   showId(id: string) {
-    console.log(id);
   }
 
   hideComponent() {
@@ -90,8 +80,6 @@ export class StashComponent implements OnInit {
   onFilter(id: string){
     this.locationService.getOneLocation(id).subscribe(data => {
       this.locationData = data;
-      console.log(this.locationData);
-      console.log("filter is running");
     })
   }
 

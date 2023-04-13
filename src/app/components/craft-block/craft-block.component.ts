@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { RecipeModel } from '../../../shared/Recipes.model';
 import { RecipeService } from 'src/shared/services/recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-craft-block',
@@ -32,10 +33,9 @@ export class CraftBlockComponent implements OnInit, OnChanges {
 
   material: RecipeModel[];
   locationMats: RecipeModel;
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.checkMode);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -43,22 +43,17 @@ export class CraftBlockComponent implements OnInit, OnChanges {
 
     for (let item in this.locationMats) {
       this.material = this.locationMats[item].qty;
-      // console.log(this.recipeData[item]._id);
     }
 
-    console.log(this.recipeId);
   }
 
   checkCrafting() {
     this.recipeService
       .checkCrafting(this.currentLocation, this.recipeId)
       .subscribe(data => {
-        // console.log(data);
         this.canCraft = data.enough;
-        console.log("can I craft" + this.canCraft)
       });
     this.checkMode = !this.checkMode;
-    console.log(this.checkMode);
   }
 
   craftRecipe(){
@@ -72,9 +67,8 @@ export class CraftBlockComponent implements OnInit, OnChanges {
       qty: 1
       
     }
-
     this.recipeService.craftRecipe(this.recipeId, this.currentLocation, tool).subscribe(data => {
-      console.log(data);
+      this.router.navigate(['/stash'])
     })
   }
 }

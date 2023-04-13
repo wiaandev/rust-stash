@@ -17,7 +17,6 @@ export class LandingComponent implements OnInit {
   }
 
   clickHandler(){
-    console.log('clicked');
   }
 
   images = [

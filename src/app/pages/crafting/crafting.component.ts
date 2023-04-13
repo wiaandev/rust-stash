@@ -36,18 +36,13 @@ export class CraftingComponent implements OnInit {
 
     this.recipeService.getRecipes().subscribe(data => {
       this.recipes = data;
-      console.log(this.recipes);
     })
   }
 
   filterByLocation(locationId: string){
     this.activeLocation = locationId;
     this.locationService.getAllMaterialsFromLocation(locationId).subscribe((data) => {
-      console.log(data);
-      console.log(locationId);
       this.filteredData = data;
-      console.log(this.filteredData)
-      // console.log(this.materialData);
     });
     this.isClicked = true;
   }

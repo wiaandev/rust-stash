@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.signupForm);
 
     const user: UserModel = {
       email: this.signupForm.controls.email.value,

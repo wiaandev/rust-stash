@@ -4,7 +4,6 @@
 <div class="container" (click)="checkCrafting()">
   <h2>{{ name }}</h2>
   <div class="recipe-block">
-    <!-- <div class="error-block"> -->
       <div class="img-block" *ngFor="let item of ingredients; let i = index">
         <img src="{{ item.inventoryId.img }}" alt="" width="100px" />
         <p>{{ item.inventoryId.name }}</p>
@@ -12,7 +11,6 @@
           <b>{{ item.requiredAmount }}x</b>
         </h4>
       </div>
-    <!-- </div> -->
   </div>
 </div>
 <div class="tool-block">

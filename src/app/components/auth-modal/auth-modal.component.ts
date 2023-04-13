@@ -28,20 +28,16 @@ export class AuthModalComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.authService.getUsers();
   }
 
   onSubmit() {
-    // this.isSubmitted = true;
     let email = this.authForm.controls.email.value
-    // console.log(email);
     this.authService.checkEmail(email).subscribe({
       next: data => {
         this.foundUser = true;
         this.data = data;
       },
       error: err => {
-        console.log(err);
       }
     });
     return this.data;
@@ -51,11 +47,8 @@ export class AuthModalComponent implements OnInit {
     let answer = this.answerForm.controls.answer.value;
     if(answer === this.data.auth[0].answer){
       this.router.navigate(['/stash']);
-      console.log('correct');
       this.user = this.data['_id'];
-      console.log(this.user);
       this.userStored = sessionStorage.setItem('user', this.user);
     }
-    console.log('onNext started')
   }
 }

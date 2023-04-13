@@ -27,7 +27,8 @@
   <div class="grid-4">
     <div class="item-con" *ngFor="let location of filteredData; let i = index">
       <h1 style="text-align: center">{{ filteredData[i].name }}</h1>
-      <h4>Total Inventory: {{location.locationItems.length}}</h4>
+      <br>
+      <h4 style="color: #fff;">Total Inventory: {{location.locationItems.length}}</h4>
       <br />
       <br />
       <br />
@@ -60,11 +61,5 @@
         </table>
       </div>
     </div>
-    <app-button
-      text="close"
-      class="btn-primary"
-      (click)="onClose()"
-    ></app-button>
   </div>
-  <p *ngIf="!selected">Choose A Base</p>
 </div>

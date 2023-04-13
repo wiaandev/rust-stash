@@ -27,7 +27,6 @@ export class LocationsComponent implements OnInit {
   ngOnInit(): void {
     this.locationService.getAllLocations().subscribe(data => {
       this.locationData = data;
-      console.log(this.locationData[0].locationItems[0].materialId.categories);
     })
   }
 
@@ -45,10 +44,7 @@ export class LocationsComponent implements OnInit {
   filterByLocation(locationId: string){
     this.activeLocation = locationId;
     this.locationService.getAllMaterialsFromLocation(locationId).subscribe((data) => {
-      console.log(data);
-      console.log(locationId);
       this.filteredData = data;
-      console.log(this.filteredData)
     });
     this.isClicked = true;
   }

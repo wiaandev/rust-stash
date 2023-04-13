@@ -4,7 +4,7 @@ import { Schema } from 'mongoose';
 class InventoryDetails {
   @prop({
     _id: false,
-    type: () => Schema.Types.ObjectId, // added [] to define an array of ObjectIds
+    type: () => Schema.Types.ObjectId, 
   })
   materialId!: Schema.Types.ObjectId;
 

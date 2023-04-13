@@ -19,23 +19,10 @@ export class QuickFilterComponent implements OnChanges {
   deeperMaterials: InventoryDetails[]
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.materials.currentValue);
-
-    for(let i in this.materials){
-      console.log(this.materials[i].locationItems[i].materialId);
-    }
   }
 
   filterByCategory(category: string){
-    console.log(category);
-    // console.log(this.materials[0].locationItems[0]['materialId']);
     this.materials = this.materialsCopy;
-    for(let i in this.materials){
-      console.log(this.materials[i].locationItems[i].materialId);
-    }
-    // this.materials = this.materials.filter(material => material[0].InventoryDetails.materialId.categories[0] == category)
-
-    // console.log(this.materials)
   }
 
   getAllMaterials(){

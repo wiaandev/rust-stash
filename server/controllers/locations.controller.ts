@@ -8,7 +8,6 @@ class LocationController {
     try {
       const { name, address, img } = req.body;
 
-      // Getting all the inventory items
       const materials = await MaterialModel.find();
 
       if (!materials) {
@@ -27,9 +26,8 @@ class LocationController {
 
       return res.status(200).send(location);
 
-      //   res.send(location);
     } catch (error) {
-      console.log(error);
+      res.status(500).send({msg: error})
     }
   }
 
@@ -53,7 +51,6 @@ class LocationController {
 
       return res.status(200).json(Location);
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ error: error });
     }
   }
@@ -73,7 +70,6 @@ class LocationController {
       }
       return res.status(200).send(locations);
     } catch (err) {
-      console.log(err);
       return res.status(500).send({ error: err });
     }
   }
@@ -82,15 +78,11 @@ class LocationController {
     try {
       const locationId = req.params.id;
       const { materialId } = req.params;
-      console.log(locationId);
-      console.log(materialId);
 
       const location = await LocationModel.findById(locationId);
 
-      console.log(location);
 
       if (!location) {
-        console.log('Cannot find location' + location);
         return res
           .status(404)
           .send(`Could not find location with ID ${locationId}`);
@@ -101,7 +93,6 @@ class LocationController {
       );
 
       if (materialIndex === -1) {
-        console.log('Cannot find material');
         return res
           .status(404)
           .send(
@@ -127,11 +118,9 @@ class LocationController {
         model: MaterialModel,
       });
 
-      console.log('found material' + material);
 
       return res.send(locationPop?.locationItems[materialIndex]);
     } catch (error) {
-      console.log(error);
       return res.status(500).send({ error: error });
     }
   }
@@ -139,15 +128,11 @@ class LocationController {
   async getAllItemsFromLocation(req: Request, res: Response) {
     try {
       const locationId = req.params.id;
-      console.log(locationId);
 
       const location = await LocationModel.findById(locationId);
 
-      const findNewMaterials = await MaterialModel.find();
-      console.log(findNewMaterials);
 
       if (!location) {
-        console.log('Cannot find location' + location);
         return res
           .status(404)
           .send(`Could not find location with ID ${locationId}`);
@@ -161,10 +146,8 @@ class LocationController {
         },
         model: MaterialModel,
       });
-      console.log('found location! ' + locationPop);
       return res.send([locationPop]);
     } catch (error) {
-      console.log(error);
       return res.status(500).send({ error: error });
     }
   }
@@ -195,7 +178,6 @@ class LocationController {
 
       return res.status(200).send(Location);
     } catch (error) {
-      console.log(error);
       return res.status(500).send('Internal server error' && error);
     }
   }
@@ -212,7 +194,6 @@ class LocationController {
         return res.status(409).send({msg: 'You cannot send to the same location!'});
       }
   
-      // console.log(sendingAmount);
       const currentLocation = await LocationModel.updateOne(
         {
           _id: locationId,
@@ -240,7 +221,6 @@ class LocationController {
 
       return res.status(200).send({currentLocation, sendingLocation});
     } catch (error) {
-      console.log(error)
       res.status(500).send({error: error})
     }
   }
