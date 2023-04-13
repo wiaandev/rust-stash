@@ -18,6 +18,9 @@ class Recipe {
   @prop()
   public name!: string;
 
+  @prop()
+  public desc!: string;
+
   @prop({type: () => [String]})
   public categories!: string[];
 

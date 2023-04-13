@@ -18,6 +18,7 @@
           class="btn-primary"
           (btnClick)="btnSave()"
         ></app-button>
+        <app-loader *ngIf="updateLoading"></app-loader>
         <app-button
           text="Close"
           class="btn-secondary"
@@ -72,7 +73,6 @@
           class="btn-primary"
           (click)="increaseQty()"
         ></app-button>
-        <app-loader></app-loader>
       </div>
     </div>
   </div>

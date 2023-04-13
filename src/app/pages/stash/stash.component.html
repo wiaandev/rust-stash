@@ -45,9 +45,6 @@
             (click)="showComponent(location._id, item.materialId._id)"
           ></app-button>
         </div>
-        <div class="none-found" *ngIf="filteredData.length === 0">
-          <h4>! No Stash Items found !</h4>
-        </div>
         <app-update-modal
           *ngIf="display"
           [qty]="locationMaterial.qty"

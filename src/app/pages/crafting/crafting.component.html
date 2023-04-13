@@ -30,13 +30,19 @@
   </div>
   <br />
   <div class="recipes" [ngClass]="!isClicked ? 'disabled' : ''">
+    <h4 class="helper-text">Click a recipe below to see if you can craft</h4>
     <app-craft-block
-      *ngFor="let recipe of recipes"
+      *ngFor="let recipe of recipes; let i = index"
       [name]="recipe.name"
       [img]="recipe.recipeImg"
+      [desc]="recipe.desc"
+      [categories]="recipe.categories"
       [canCraft]="recipe.ingredients.canCraft"
       [ingredients]="recipe.ingredients"
       [materials]="filteredData"
+      [recipeData]="recipes"
+      [recipeId]="recipes[i]._id"
+      [currentLocation]="activeLocation"
     ></app-craft-block>
   </div>
 </div>

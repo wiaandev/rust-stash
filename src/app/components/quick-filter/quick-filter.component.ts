@@ -21,9 +21,9 @@ export class QuickFilterComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes.materials.currentValue);
 
-    // for(let i in this.materials){
-      console.log(this.materials[2].locationItems[2].materialId);
-    // }
+    for(let i in this.materials){
+      console.log(this.materials[i].locationItems[i].materialId);
+    }
   }
 
   filterByCategory(category: string){

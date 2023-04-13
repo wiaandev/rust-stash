@@ -49,11 +49,6 @@ export class StashComponent implements OnInit {
       console.log(data);
       this.locationMaterial = data;
       console.log(this.locationMaterial.qty)
-      // for(let item of this.locationMaterial){
-      //   this.qty = this.locationMaterial[item].qty;
-      //   console.log(this.qty);
-      // }
-      // console.log(this.materialData);
     });
     this.display = true;
   }
@@ -65,7 +60,6 @@ export class StashComponent implements OnInit {
       console.log(locationId);
       this.filteredData = data;
       console.log(this.filteredData)
-      // console.log(this.materialData);
     });
     this.isClicked = true;
 
@@ -91,46 +85,7 @@ export class StashComponent implements OnInit {
 
   hideComponent() {
     this.display = false;
-    // this.hideComponent();
   }
-
-  // searchMaterials() {
-
-  //   if (this.searchParam === '') {
-  //     this.locationService.getAllMaterialsFromLocation(this.activeLocation).subscribe((data) => {
-  //       // this.filteredData = data;
-  //       this.textFiltered = data;
-  //       console.log(this.textFiltered);
-  //       // console.log(this.filteredData[0].locationItems.name);
-  //     });
-  //   } else {
-  //     // Filter the stash array based on the searchParam
-  //     this.textFiltered = this.textFiltered.filter((item) => {
-  //       console.log(this.textFiltered);
-  //       return item.locationItems[0].materialId[0].name.toLowerCase().includes(this.searchParam.toLowerCase());
-  //       const locationItems = item.locationItems;
-  //       // const materialId = locationItems?.materialId;
-  //       // const materialName = materialId?.name;
-    
-  //       console.log('Location items:', locationItems);
-  //       // console.log('Material ID:', materialId);
-  //       // console.log('Material name:', materialName);
-    
-  //       // return materialName?.toLowerCase().includes(this.searchParam.toLowerCase());
-      
-  //     });
-
-  //     console.log(this.filteredData);
-  //   }
-  //   // this.stash = this.stash.filter(item => item.name.toLowerCase().includes(this.searchParam.toLowerCase()));
-  //   this.router.navigate([], {
-  //     relativeTo: this.route,
-  //     queryParams: {search: this.searchParam},
-  //     queryParamsHandling: 'preserve',
-  //     skipLocationChange: true
-  //   })
-  //   console.log(this.textFiltered);
-  // }
 
   onFilter(id: string){
     this.locationService.getOneLocation(id).subscribe(data => {
@@ -140,11 +95,4 @@ export class StashComponent implements OnInit {
     })
   }
 
-  // onChangeLocation(category: string){
-  //   this.locationService.getOneLocation(category).subscribe((data)=>{
-  //       this.stash = lcaotionStash()
-  //   })
-  // }
-
-  // (click)="onChangeLocation("Armored Base")"
 }

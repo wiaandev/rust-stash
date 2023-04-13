@@ -143,6 +143,9 @@ class LocationController {
 
       const location = await LocationModel.findById(locationId);
 
+      const findNewMaterials = await MaterialModel.find();
+      console.log(findNewMaterials);
+
       if (!location) {
         console.log('Cannot find location' + location);
         return res

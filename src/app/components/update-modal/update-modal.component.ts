@@ -10,6 +10,7 @@ import { LocationService } from 'src/shared/services/location.service';
 })
 export class UpdateModalComponent implements OnInit {
   loading: boolean = true;
+  updateLoading: boolean = true;
   amountWood: number;
   amountStone: number;
   amountMetal: number;
@@ -32,6 +33,8 @@ export class UpdateModalComponent implements OnInit {
   @Input() locationId: string;
   @Input() materialId: string;
 
+  @Output() newQty: number;
+
   increaseQty() {
     this.qty++;
     console.log(this.qty);
@@ -53,8 +56,10 @@ export class UpdateModalComponent implements OnInit {
       .updateQty(this.locationId, this.materialId, this.qty)
       .subscribe((data) => {
         console.log(data);
+        this.qty = this.newQty;
+        this.btnClick.emit();
       });
-    window.location.reload();
+    // window.location.reload();
   }
 
   btnClose() {
@@ -75,6 +80,7 @@ export class UpdateModalComponent implements OnInit {
     }, error => {
       this.errorMessage = error;
     })
+    window.location.reload();
   }
 
   onTransferToStone(newLocation: string) {
@@ -89,6 +95,7 @@ export class UpdateModalComponent implements OnInit {
     }, error => {
       this.errorMessage = error;
     })
+    window.location.reload();
   }
   
   onTransferToMetal(newLocation: string) {
@@ -104,5 +111,6 @@ export class UpdateModalComponent implements OnInit {
     }, error => {
       this.errorMessage = error;
     })
+    window.location.reload();
   }
 }

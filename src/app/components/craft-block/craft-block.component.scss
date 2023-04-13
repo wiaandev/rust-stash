@@ -1,6 +1,12 @@
 @import "../../../styles.scss";
 .outer{
   display: flex;
+  opacity: 0.3;
+  transition: 0.3s ease-in-out;
+}
+
+.check{
+  opacity: 1;
 }
 .container {
   display: flex;

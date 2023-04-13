@@ -49,7 +49,6 @@ export class LocationsComponent implements OnInit {
       console.log(locationId);
       this.filteredData = data;
       console.log(this.filteredData)
-      // console.log(this.materialData);
     });
     this.isClicked = true;
   }

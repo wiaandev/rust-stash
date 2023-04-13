@@ -1,7 +1,7 @@
-<div class="outer">
+<div class="outer" [ngClass]="checkMode ? 'check' : ''">
 
 
-<div class="container">
+<div class="container" (click)="checkCrafting()">
   <h2>{{ name }}</h2>
   <div class="recipe-block">
     <!-- <div class="error-block"> -->
@@ -19,12 +19,20 @@
   <img src="{{ img }}" alt="" width="100" />
   <p>{{ name }}</p>
   <app-button
+    *ngIf="canCraft && checkMode"
     text="CRAFT"
     class="btn-craft"
+    (btnClick)="craftRecipe()"
+  ></app-button>
+  <app-button
+    *ngIf="!canCraft && checkMode"
+    text="CANNOT CRAFT"
+    class="btn-craft"
+    [disabled]="!canCraft"
   ></app-button>
 </div>
 </div>
-<p class="craft-error" *ngIf="canCraft">
+<p class="craft-error" *ngIf="!canCraft && checkMode">
   <span class="material-symbols-outlined">Error</span>You do not have one or
   more material(s) to craft this item
 </p>
