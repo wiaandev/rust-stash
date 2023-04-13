@@ -65,7 +65,7 @@
 
 <!-- header image of project -->
 
-![image1](src/components/assets/Mockup3.jpg)
+![image1](src/app/assets/about.jpg)
 
 ### Project Description
 
