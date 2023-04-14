@@ -29,7 +29,7 @@
     
    <br />
    <br />
-   <a href="https://youtu.be/Oag-DdqW9jA">View Demo</a>
+   <a href="https://youtu.be/kRleJiCgBmU">View Demo</a>
     ·
     <a href="https://github.com/wiaandev/rust-stash/issues">Report Bug</a>
     ·
@@ -276,7 +276,7 @@ For above and beyond I have deployed this project using Vercel for my front-end 
 
 To see a run through of the application, click below:
 
-[View Demonstration](https://youtu.be/Oag-DdqW9jA)
+[View Demonstration](https://youtu.be/kRleJiCgBmU)
 
 See the [open issues](https://github.com/wiaandev/rust-stash/issues) for a list of proposed features (and known issues).
 
