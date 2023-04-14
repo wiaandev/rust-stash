@@ -148,24 +148,19 @@ When users click <i>Access Stash</i> they will be prompted with a modal where us
 ![image2](src/assets/mockups/stash.jpg)
 On the stash page, users would be able to filter each location and see their respective inventory or stash.
 
-### Updating Inventory
+### Updating & Sending Inventory to locations
 
-![image2](src/assets/mockups/signup.jpg)
-Users would be prompted with a pop-up modal where they would be able the quantity of their inventory item.
-
-### Sending Inventory to locations
-
-![image2](src/assets/mockups/signup.jpg)
-On the same pop-up modal, users would be able to send a certain amount of inventory to another location, but not to the same location.
+![image2](src/assets/mockups/update.jpg)
+Users would be prompted with a pop-up modal where they would be able the quantity of their inventory item. On the same pop-up modal, users would be able to send a certain amount of inventory to another location, but not to the same location.
 
 ### Craft a tool
 
-![image2](src/assets/mockups/signup.jpg)
+![image2](src/assets/mockups/craft.jpg)
 By clicking on each block on the crafting page, users can receive a visual indication to determine whether or not they are able to craft a particular tool. User would not be able to craft an item if the craft button is disabled and it shows "cannot craft".
 
 ### Location Page
 
-![image2](src/assets/mockups/signup.jpg)
+![image2](src/assets/mockups/location.jpg)
 Going to the locations page, a image, name and address of the base will be shown. Clicking on one of the bases or locations, a table will be give to the user, which will showcase the inventory of the base.
 
 <!-- CONCEPT PROCESS -->
