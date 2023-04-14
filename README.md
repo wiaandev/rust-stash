@@ -140,12 +140,12 @@ Users can sign up to access the inventory using their email. Users should also a
 
 ### Logging in
 
-![image2](src/assets/mockups/signup.jpg)
+![image2](src/assets/mockups/verify.jpg)
 When users click <i>Access Stash</i> they will be prompted with a modal where users will enter their email and security credentials in order to access Rust Stash and its content. Users would not be able to access Rust Stash without being logged in.
 
 ### Filtering location stash
 
-![image2](src/assets/mockups/signup.jpg)
+![image2](src/assets/mockups/stash.jpg)
 On the stash page, users would be able to filter each location and see their respective inventory or stash.
 
 ### Updating Inventory
