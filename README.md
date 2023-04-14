@@ -3,10 +3,12 @@
 <!-- Repository Information & Links-->
 <br />
 
-![GitHub repo size](https://img.shields.io/github/repo-size/wiaandev/rust-stash)
-![GitHub watchers](https://img.shields.io/github/watchers/wiaandev/rust-stash)
-![GitHub language count](https://img.shields.io/github/languages/count/wiaandev/rust-stash)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wiaandev/rust-stash)
+![GitHub repo size](https://img.shields.io/github/repo-size/wiaandev/rust-stash?color=red)
+![GitHub watchers](https://img.shields.io/github/watchers/wiaandev/rust-stash?color=white)
+![GitHub language count](https://img.shields.io/github/languages/count/wiaandev/rust-stash?color=red)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wiaandev/rust-stash?color=white)
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Instagram][instagram-shield]][instagram-url]
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Wiaan Duvenhage</h5>
@@ -16,13 +18,13 @@
 <p align="center">
 
   <a href="https://github.com/wiaandev/rust-stash">
-    <img src="src/assets/icon.svg" alt="Logo" width="100px">
+    <img src="src/assets/logo-light.svg" alt="Logo" width="100px">
   </a>
   
   <h3 align="center">Rust Stash</h3>
 
   <p align="center">
-    A inventory management system project built with the MEAN Stack.<br>
+    An inventory management system project built with the MEAN Stack.<br>
     
    <br />
    <br />
@@ -69,13 +71,18 @@
 
 ### Project Description
 
-Welcome to rust-stash! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
+Welcome to Rust Stash! This is an inventory management system where users can manage, track and craft their own inventory. The inventory and its contents are based off of the popular game [Rust](https://rust.facepunch.com/)
 
 ### Built With
+
 [<img src="https://www.svgrepo.com/show/373845/mongo.svg" width="5%" height="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://www.mongodb.com/cloud/atlas/lp/try4?utm_source=google&utm_campaign=gs_emea_south_africa_search_core_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624560&adgroup=115749711783)
 [<img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" width="5%" height="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://expressjs.com/)
 [<img src="https://www.svgrepo.com/show/452156/angular.svg" width="5%" height="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://angular.io/)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/590px-Node.js_logo.svg.png?20170401104355" width="7%" height="7%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://nodejs.org/en/)
+
+### Deployed With
+[<img src="https://cdn.worldvectorlogo.com/logos/vercel.svg" width="4%" height="4%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://vercel.com/)
+[<img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_477db83f729d63210139ec7cd29c1351/render-render.png" width="4%" height="4%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://render.com/)
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
@@ -103,8 +110,20 @@ Here are a couple of ways to clone this repo:
 3.  Install Dependencies </br>
     Run the following in the command-line to install all the required dependencies:
 
+    For the front-end
+
     ```sh
     npm install
+    ```
+
+    For the back-end
+
+    ```sh
+    cd server
+    ```
+
+    ```sh
+    npm install --legacy-peer-deps
     ```
 
 <!-- FEATURES AND FUNCTIONALITY-->
@@ -114,26 +133,40 @@ Here are a couple of ways to clone this repo:
 
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
 
-### Adding an Appointment
+### Sign Up & Authentication
 
-![image5](src/components/assets/Function1.jpg)
-The receptionist can add an appointment by assigning a patient to a doctor. They can add the name, date and time and it will display on the page when the page auto-refreshes.
+![image2](src/assets/mockups/signup.jpg)
+Users can sign up to access the inventory using their email. Users should also add their security question and security answer, which would be used as a method of authenticating them so that they can access the inventory, locations and crafting pages.
 
-### Scroll Through Calendar
+### Logging in
 
-![image6](src/components/assets/Function2.jpg)
-The receptionist can scroll through the calendar to see which date falls on which day, the receptionist can go forward or backward in time using the arrows underneath the month's name.
+![image2](src/assets/mockups/signup.jpg)
+When users click <i>Access Stash</i> they will be prompted with a modal where users will enter their email and security credentials in order to access Rust Stash and its content. Users would not be able to access Rust Stash without being logged in.
 
-### Add Doctor/Patient
+### Filtering location stash
 
-![image7](src/assets/Function3.jpg)
-The receptionist can add a new doctor or patient's information into the modal and it will push to the database and display on the page after it refreshes.
+![image2](src/assets/mockups/signup.jpg)
+On the stash page, users would be able to filter each location and see their respective inventory or stash.
 
-### Only Head Receptionist can add
+### Updating Inventory
 
-![image8](src/components/assets/Function4.jpg)
-![image10](src/components/assets/Function4-1.jpg)
-The head receptionist is the only one authorized to add, delete or update appointments, patients & doctors
+![image2](src/assets/mockups/signup.jpg)
+Users would be prompted with a pop-up modal where they would be able the quantity of their inventory item.
+
+### Sending Inventory to locations
+
+![image2](src/assets/mockups/signup.jpg)
+On the same pop-up modal, users would be able to send a certain amount of inventory to another location, but not to the same location.
+
+### Craft a tool
+
+![image2](src/assets/mockups/signup.jpg)
+By clicking on each block on the crafting page, users can receive a visual indication to determine whether or not they are able to craft a particular tool. User would not be able to craft an item if the craft button is disabled and it shows "cannot craft".
+
+### Location Page
+
+![image2](src/assets/mockups/signup.jpg)
+Going to the locations page, a image, name and address of the base will be shown. Clicking on one of the bases or locations, a table will be give to the user, which will showcase the inventory of the base.
 
 <!-- CONCEPT PROCESS -->
 <!-- Briefly explain your concept ideation process -->
@@ -164,6 +197,9 @@ The `Development Process` is the technical implementations and functionality don
 - `axios` was implemented so that I can make HTTP requests to the database server so that I can retrieve and push data to it
 
 - I used `PHPMyAdmin` to alter data on the database and used PHP to talk to the backend MySQL database
+
+
+### Deployment
 
 #### Highlights
 
@@ -257,3 +293,8 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 - [(w3schools) SQL SELECT Statement](https://www.w3schools.com/sql/sql_select.asp)
 - [Leander van Aarde](https://github.com/LeandervanAarde)
 - [Vian Du Plessis](https://github.com/Vian-du-Plessis)
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/wiaan-duvenhage-95118823a/
+[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
+[instagram-url]: https://www.instagram.com/wiaan.dev/
