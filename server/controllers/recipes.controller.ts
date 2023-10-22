@@ -14,7 +14,6 @@ class RecipeController {
         select: ['name', 'qty', 'img'],
       });
 
-
       if (!recipes) {
         res.status(404).send({ msg: 'Recipes could not be found' });
       }
@@ -26,7 +25,6 @@ class RecipeController {
 
   async addRecipe(req: Request, res: Response) {
     try {
-
       const filePath = path.resolve(__dirname, '../models/recipes.json');
 
       const recipesJson = fs.readFileSync(
@@ -36,8 +34,6 @@ class RecipeController {
       const data = JSON.parse(recipesJson);
 
       const recipe = await RecipeModel.insertMany(data);
-
-
 
       if (!recipe) {
         res.status(400).send({ msg: 'Cannot Create Recipe!' });
@@ -66,8 +62,6 @@ class RecipeController {
 
       let compareItems: craftCompare[] = [];
       let recipeCompareItems: craftCompare[] = [];
-      let filter;
-
 
       if (location && recipes) {
         const locationCompareItems = location.locationItems.map(
@@ -77,23 +71,27 @@ class RecipeController {
           })
         );
         compareItems.push(...locationCompareItems);
+        console.log(locationCompareItems);
 
         const recpCompareItems = recipes.ingredients.map((item: any) => ({
           itemId: item.inventoryId.toString(),
           qty: item.requiredAmount,
         }));
         recipeCompareItems.push(...recpCompareItems);
+        console.log(recpCompareItems);
       }
 
-      filter = compareItems.filter((thisItem) =>
-        recipeCompareItems.some(
-          (secondary) => thisItem.itemId === secondary.itemId
-        )
-      );
+      for (const requiredItem of recipeCompareItems) {
+        const matchingAvailableItem = compareItems.find(
+          (availableItem) => availableItem.itemId === requiredItem.itemId
+        );
 
-      for (let i in filter) {
-        if (filter[i].qty < recipeCompareItems[i].qty) {
-          enough = false;
+        if (
+          !matchingAvailableItem ||
+          matchingAvailableItem.qty < requiredItem.qty
+        ) {
+          enough = false; // If any required item is not available in sufficient quantity, set enough to false
+          break; // Exit the loop early
         }
       }
 
@@ -103,78 +101,111 @@ class RecipeController {
     }
   }
 
-
-
   async craftRecipe(req: Request, res: Response) {
     try {
       const locationId = req.params.locationId;
       const recipeId = req.params.recipeId;
       const { name, desc, categories, img, isCraftable, qty } = req.body;
-  
-      const location = await LocationModel.findById(locationId);
+
+      //finding the location and recipe I want to craft
+      let location = await LocationModel.findById(locationId);
       const recipes = await RecipeModel.findById(recipeId);
-  
-  
+
+      //creating an interface for what I want to craft and how much of it
       interface craftBody {
         itemId: string;
         qty: number;
       }
-  
+
       let locationMats: craftBody[] = [];
       let recipeIngredients: craftBody[] = [];
-      let filter;
-  
+      // let filter;
+
       if (location && recipes) {
         const locationMatItems = location.locationItems.map((item: any) => ({
           itemId: item.materialId.toString(),
           qty: item.qty,
         }));
         locationMats.push(...locationMatItems);
-  
+
         const recipeIngredientItems = recipes.ingredients.map((item: any) => ({
           itemId: item.inventoryId.toString(),
           qty: item.requiredAmount,
         }));
         recipeIngredients.push(...recipeIngredientItems);
       }
-  
-      filter = locationMats.filter((thisItem) =>
-        recipeIngredients.some(
-          (secondary) => thisItem.itemId === secondary.itemId
-        )
-      );
-
-      let createRecipe;
-      let subtractMaterial;
-      for (let i in filter) {
-        createRecipe = filter[i].qty - recipeIngredients[i].qty;
-
-        subtractMaterial = await LocationModel.updateOne(
-          {
-            _id: locationId,
-            [`locationItems.materialId`]: filter[i].itemId
-          },
-          {
-            $set: {['locationItems.$.qty']: filter[i].qty - recipeIngredients[i].qty }
+      
+      for (let i = 0; i < recipeIngredients.length; i++) {
+        const ingredient = recipeIngredients[i];
+        const locationMat = locationMats.find(
+          (mat) => mat.itemId === ingredient.itemId
+        );
+        if (locationMat) {
+          if (locationMat.qty >= ingredient.qty) {
+            locationMat.qty -= ingredient.qty;
+          } else {
+            return res.status(405).send('not enough materials');
           }
-        )
+        }
       }
 
+      //update the location with modified materials
+      const updateResult = await LocationModel.updateOne(
+        { _id: locationId },
+        {
+          locationItems: locationMats.map((mat) => ({
+            materialId: mat.itemId,
+            qty: mat.qty,
+          })),
+        }
+      );
 
-  
-      const materials = await MaterialModel.create({
+      //add the crafted material to location's items
+      const craftedMaterial = await MaterialModel.create({
         name: recipes!.name,
         desc: recipes!.desc,
         categories: recipes!.categories,
         img: recipes!.recipeImg,
         isCraftable: false,
-        qty: 1
-      }).then();
+        qty: 1,
+      });
 
-      res.status(200).send({materials,subtractMaterial})
-  
+      locationMats.push({
+        itemId: craftedMaterial._id.toString(),
+        qty: 1,
+      });
+
+      //update the location with the crafted material
+      await LocationModel.updateOne(
+        { _id: locationId },
+        {
+          locationItems: locationMats.map((mat) => ({
+            materialId: mat.itemId,
+            qty: mat.qty,
+          })),
+        }
+      );
+
+      //update the location variable with the latest data
+      location = await LocationModel.findById(locationId).populate({
+        path: 'locationItems.materialId',
+        populate: {
+          path: 'name',
+          select: 'name',
+        },
+        model: MaterialModel,
+      });
+
+      //update the materials and location variables with the latest data
+      const updatedMaterials = await MaterialModel.find();
+      const updatedLocation = location;
+
+      //send the updated materials and location
+      res
+        .status(200)
+        .json({ materials: updatedMaterials, location: updatedLocation });
     } catch (error) {
-      res.status(500).send({msg: error})
+      res;
     }
   }
 }
