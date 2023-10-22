@@ -1,7 +1,10 @@
 <div class="container">
-  <div class="modal" *ngIf="!foundUser">
+  <div class="modal" *ngIf="!foundUser" @fadeIn @fadeOut>
     <h2>Verify Yourself!</h2>
     <h4>Enter Your Email</h4>
+    <p *ngIf="errorMsg" class="authError" @fadeIn @fadeOut>
+      Email is incorrect! Try again.
+    </p>
     <form class="form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
       <input
         type="text"
@@ -18,10 +21,11 @@
     </form>
   </div>
 
-  <div class="modal" *ngIf="foundUser">
+  <div class="modal" *ngIf="foundUser" @fadeIn @fadeOut>
     <h3>Verify Yourself</h3>
-    <h4>Answer your security question</h4>
-    <p>{{data.auth[0].question}}
+    <h4 class="question">{{ data.auth[0].question }}</h4>
+    <p *ngIf="errorAns" class="authError" @fadeIn @fadeOut>
+      Incorrect Answer!
     </p>
     <form class="form" [formGroup]="answerForm" (ngSubmit)="onLogin()">
       <input

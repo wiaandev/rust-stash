@@ -1,6 +1,6 @@
 <div style="display: flex">
   <div class="left">
-    <img src="../../../assets/icon.svg" alt="" width="50px">
+    <img src="../../../assets/icon.svg" alt="" width="50px" />
     <h1>Rust Stash</h1>
     <h4>Manage. Craft. Track</h4>
     <app-button
@@ -10,8 +10,10 @@
       (btnClick)="checkUser()"
     ></app-button>
     <p>or</p>
-    <br>
-    <p style="text-decoration: underline; cursor:pointer" routerLink="/signup">Sign up</p>
+    <br />
+    <p style="text-decoration: underline; cursor: pointer" routerLink="/signup">
+      Sign up
+    </p>
   </div>
   <div class="right">
     <div class="slider">
@@ -26,4 +28,10 @@
     </div>
   </div>
 </div>
-<app-auth-modal *ngIf="authMode"></app-auth-modal>  
+
+<div class="mobileMessage" *ngIf="!isDesktopOrBigger">
+  <img src="../../../assets/logo-light.svg"/>
+  Rust Stash can only be viewed on desktop, sorry!
+</div>
+
+<app-auth-modal *ngIf="authMode"></app-auth-modal>

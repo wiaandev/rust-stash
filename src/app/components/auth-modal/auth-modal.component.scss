@@ -38,7 +38,17 @@
           opacity: 0.5;
           font-style: italic;
         }
+        
       }
+    }
+    .authError {
+      padding: 10px;
+      background-color: $black;
+      color: $white;
+    }
+
+    .question {
+      font-weight: bold;
     }
   }
 }

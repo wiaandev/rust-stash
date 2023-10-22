@@ -45,13 +45,13 @@
     display: none;
   }
 
-  .right__auth{
+  .right__auth {
     background-color: $red;
     width: 100vw;
     height: 100%;
     color: $white;
     text-align: center;
-    padding: 20px
+    padding: 20px;
   }
 
   // Styling
@@ -91,5 +91,24 @@
       object-fit: contain;
       height: 200px;
     }
+  }
+}
+
+@media (max-device-width: 1023px) {
+  .mobileMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba($color: $black, $alpha: 1.0);
+    color: $red;
+    padding: 10px;
+    font-size: 32px;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
   }
 }
