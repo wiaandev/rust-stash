@@ -24,4 +24,10 @@ export class StashService {
       `${this.serverLink}?search=${search}`
     );
   }
+
+  // deleteOneMaterial(id:string): Observable<MaterialModel[]> {
+  //   return this.http.delete<MaterialModel[]>(
+  //     `${this.serverLink}/${id}`
+  //   );
+  // }
 }

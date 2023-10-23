@@ -6,7 +6,6 @@ class MaterialController {
     try {
       const materials = await MaterialModel.find().sort({ name: 1 });
       res.json(materials);
-
     } catch (error) {
       return res.status(500).send({ error: error });
     }
@@ -18,7 +17,7 @@ class MaterialController {
       const singleMaterial = await MaterialModel.findById(id);
       res.json(singleMaterial);
     } catch (err) {
-      res.status(500).send({error: err});
+      res.status(500).send({ error: err });
     }
   }
 
@@ -37,6 +36,26 @@ class MaterialController {
       return res.status(500).send({ error: error });
     }
   }
+
+  // async deleteMaterial(req: Request, res: Response) {
+  //   try {
+  //     const { id } = req.params;
+  //     console.log("ID: ", id);
+
+  //     const material = await MaterialModel.findOne({ _id: id });
+
+  //     console.log(material);
+
+  //     if (!material) {
+  //       return res.status(404).send({ error: 'Material does not exist' });
+  //     }
+
+  //     await material.deleteOne();
+  //     res.send({ message: 'Material deleted successfully' });
+  //   } catch (error) {
+  //     return res.status(500).send({ error: error });
+  //   }
+  // }
 }
 
 export { MaterialController };
